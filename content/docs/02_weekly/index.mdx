@@ -1,4 +1,43 @@
 ---
-title: タイトルを入れる
-description: 説明を入れる
+title: 毎週の業務
+description: 週単位で行う発注業務やデータ更新の手順です。
 ---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { ShoppingCart, RefreshCw, CalendarDays } from 'lucide-react';
+
+# 🗓️ 毎週の業務 (Weekly Routine)
+
+週に数回、決まった曜日に行う業務のマニュアルです。
+曜日ごとのタスクを確認し、漏れがないように実施してください。
+
+## 📅 週間スケジュール
+
+| 曜日       | 業務内容           | 備考                 |
+| :--------- | :----------------- | :------------------- |
+| **火曜日** | **消耗品の発注**   | 18:00 までに送信     |
+| **木曜日** | **消耗品の発注**   | 18:00 までに送信     |
+| **土曜日** | **データ更新作業** | 2 週間ローリング処理 |
+
+<br />
+
+## 📋 業務メニュー
+
+<Cards>
+	<Card
+		icon={<ShoppingCart />}
+		href="/docs/02_weekly/order_supplies"
+		title="1. 消耗品の発注"
+	>
+		毎週 **火・木** に行う、トレーや袋などの発注業務です。
+	</Card>
+
+    <Card
+    	icon={<RefreshCw />}
+    	href="/docs/02_weekly/saturday_update"
+    	title="2. 土曜日のデータ更新"
+    >
+    	毎週 **土曜日** に行う、製造データの繰り越し処理（ローリング）です。
+    </Card>
+
+</Cards>
