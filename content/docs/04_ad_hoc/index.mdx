@@ -1,4 +1,103 @@
 ---
-title: タイトルを入れる
-description: 説明を入れる
+title: マスタ登録・変更
+description: 新商品の登録や価格変更、数量調整など、必要に応じて行うメンテナンス業務のマニュアルです。
 ---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import {
+	Archive,
+	FilePlus,
+	AlertTriangle,
+	Save,
+	CheckCircle,
+} from 'lucide-react';
+
+# 🛠️ マスタ登録・変更 (Maintenance)
+
+新商品の登録や価格変更、数量調整など、必要に応じて行うメンテナンス業務のマニュアルです。
+これらは毎日の作業とは異なり、**システム（マスタデータ）そのものを書き換える** 重要な作業です。
+
+<Callout
+	type="error"
+	title="【最重要】バックアップのルール"
+	icon={<AlertTriangle />}
+>
+	**変更を加える前に、必ずバックアップを取ってください！**
+
+    操作を誤って数式を消してしまったり、ファイルが破損した場合、バックアップがないと復旧できません。
+    作業が終わったら、以下の手順で別名保存してください。
+
+</Callout>
+
+## 💾 バックアップの手順
+
+<Steps>
+<Step>
+ 
+### ファイルをコピーする
+
+以下のフォルダにある `CB商品データ.xlsm` をコピーします。
+
+- **場所:** `デスクトップ` > `よく使う` > `商品データ`
+- **コツ:** ファイルを選択して **`Ctrl` + `C`** キーを押すとコピーできます。
+
+</Step>
+<Step>
+ 
+### バックアップ先へ保存
+
+同じ `よく使う` フォルダの中にある **`BackUp`** フォルダを開き、貼り付けます。
+
+- **保存先:** `デスクトップ` > `よく使う` > `BackUp`
+- **コツ:** フォルダを開いて **`Ctrl` + `V`** キーを押すと貼り付けできます。
+
+</Step>
+<Step>
+ 
+### ファイル名の変更
+
+ファイル名を以下のルールで変更して保存してください。
+「いつ」「何をしたか」が分かるようにします。
+
+- **基本ルール:** `元のファイル名` + `YYYY-MM-DD` + `変更内容`
+- **例:** `CB商品データ2025-12-15更新前.xlsm`
+
+</Step>
+</Steps>
+
+---
+
+## 📋 業務メニュー
+
+<Cards>
+	<Card
+		icon={<FilePlus />}
+		href="/04_ad_hoc/new_product"
+		title="1. 新商品登録フロー"
+	>
+		レシピ保存からJAN発行、システム登録までの一連の流れです。
+	</Card>
+
+    <Card
+    	icon={<Archive />}
+    	href="/04_ad_hoc/change_quantity"
+    	title="2. 終売・数量変更"
+    >
+    	商品の終売処理や、店舗からの数量変更依頼への対応手順です。
+    </Card>
+
+</Cards>
+
+## ✅ 更新作業が終わったら
+
+マスタを変更した後は、必ず以下の確認を行ってください。
+
+<Callout type="info" title="動作確認" icon={<CheckCircle />}>
+
+    * **印刷プレビュー:**
+    「全店舗分出力」などを行い、レイアウトが崩れていないか確認しましょう。
+    * **エラーチェック:** `#REF!` や `#VALUE!` などのエラー表示が出ていないか確認しましょう。
+
+</Callout>
