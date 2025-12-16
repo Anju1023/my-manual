@@ -1,13 +1,75 @@
 ---
-title: 業務マニュアル
-description: ここに業務の手順を書いていく
+title: はじめに
+description: 本マニュアルの目的と構成、システム運用ルールについて
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+import {
+	Calendar,
+	ShoppingCart,
+	CalendarDays,
+	Settings,
+	PenTool,
+	AlertTriangle,
+	Search,
+	Power,
+} from 'lucide-react';
 
-## What is Next?
+# 🍞 南部センター ベーカリー業務マニュアル
+
+本サイトは、南部センターベーカリーにおける事務作業およびシステム操作の手順を体系的にまとめた業務マニュアルです。
+業務遂行における不明点の確認や、手順の再確認にご活用ください。
+
+## 📚 マニュアルの構成
+
+本マニュアルは、業務の頻度や性質に合わせて以下の 5 つのセクションで構成されています。
 
 <Cards>
-	<Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-	<Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
+	<Card icon={<Calendar />} href="/docs/01_daily" title="01. 毎日の業務">
+		日替わり表の印刷・納品記録の保存など、毎日行うルーティンワークです。
+	</Card>
+	<Card icon={<ShoppingCart />} href="/docs/02_weekly" title="02. 毎週の業務">
+		火曜・木曜の発注業務や、土曜日のデータ更新作業について記載しています。
+	</Card>
+	<Card
+		icon={<CalendarDays />}
+		href="/docs/03_monthly"
+		title="03. 月末・月初の業務"
+	>
+		棚卸しやシフト作成など、月次で発生する重要業務の手順です。
+	</Card>
+	<Card icon={<PenTool />} href="/docs/04_ad_hoc" title="04. マスタ登録・変更">
+		新商品の登録や価格変更など、不定期に発生するメンテナンス業務です。
+	</Card>
+	<Card
+		icon={<Settings />}
+		href="/docs/09_system_specs"
+		title="99. 管理者向け情報"
+	>
+		システム構成図、VBAコード解説、トラブルシューティングガイドです。
+	</Card>
 </Cards>
+
+---
+
+## 🛑 システム運用ルール
+
+システムの安定運用およびデータ保全のため、以下のルールを必ず遵守してください。
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <Callout type="error" title="バックアップの徹底" icon={<AlertTriangle />}>
+        マスタデータ (`CB商品データ` 等)に変更を加える際は、作業開始前に必ず `BackUp` フォルダへ現行ファイルのコピーを保存してください。
+    </Callout>
+
+    <Callout type="warn" title="業務終了時のシャットダウン" icon={<Power />}>
+        退勤時は画面を消灯するだけでなく、全てのExcelファイルを保存・終了し、Windowsのスタートメニューより「シャットダウン」を実行してください。
+    </Callout>
+
+</div>
+
+<Callout type="info" title="検索機能の活用" icon={<Search />}>
+	画面右上の検索バー（ショートカット: `Ctrl +
+	K`）より、キーワード（例：「新商品」「発注」）による全文検索が可能です。
+	知りたい情報が見つからない場合は活用してください。
+</Callout>
