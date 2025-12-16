@@ -1,0 +1,144 @@
+---
+title: 'Step 3: ラベラー (@Label) の登録'
+description: クラウドシステム (@Label) を使用して、店舗のラベルプリンターに新商品情報を登録します。
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+import {
+	FileText,
+	Globe,
+	Search,
+	AlertTriangle,
+	CheckSquare,
+	Printer,
+	Save,
+	Image,
+} from 'lucide-react';
+
+# Step 3: ラベラー (@Label) の登録
+
+本社から JAN コードが発行されたら、Web サービス **「@Label (ラベルサーブ)」** を使用して、店舗のラベルプリンター（レジ）用のマスタデータを作成・配信します。
+
+<Callout type="info" title="使用するファイル・サイト" icon={<FileText />}>
+    **1. 管理台帳 (Excel)**
+    * **ファイル名:** `コンパクトベーカリー商品リスト.xlsx`
+    * **場所:** `Dropbox` > `共有` > `TERAOKAラベラー` > `ラベルプリンター　リスト` > `旧コンパクトベーカリー`
+
+    **2. Webシステム**
+    * **サイト:** [@Label (https://labelserv.net/)](https://labelserv.net/)
+    * **ID/PASS:** Chromeに保存されています（自動入力されます）。
+
+</Callout>
+
+## 📋 登録手順
+
+<Steps>
+<Step>
+
+### 呼び出し番号の決定 (Excel 台帳)
+
+まず、Excel の管理台帳を開いて「使用可能な（空いている）呼び出し番号」を確保します。
+
+1. `コンパクトベーカリー商品リスト.xlsx` を開きます。
+2. 商品カテゴリに合ったシートを選択します。
+3. **「現在使われていない（空欄または終売済み）」** 番号を探します。
+4. その行に、新商品の情報（商品名、売価、JAN コード等）を入力して確保します。
+   - **重要:** 重複を防ぐため、決まったらすぐに上書き保存してください。
+
+</Step>
+<Step>
+
+### @Label へのログインと検索
+
+1. ブラウザ (Chrome) で [@Label](https://labelserv.net/) にアクセスします。
+2. ID とパスワードは自動入力されるので、そのままログインします。
+3. メニュータブ **「商品マスタ」** > **「商品マスタ」** をクリックします。
+4. 検索条件の **「呼出番号」** 欄に、先ほど決めた番号を入力して「検索」します。
+
+{/* ↓↓↓ 検索画面のスクショを追加！ ↓↓↓ */}
+![商品マスタ検索画面](https://placehold.co/600x400?text=Search+Screen+Capture)
+
+</Step>
+<Step>
+
+### データの編集 (上書き登録)
+
+検索結果に表示されたデータを選択し、**「変更」** ボタンを押します。
+（※既存の不要になったデータを、新商品の内容に書き換えて登録します）
+
+<Callout type="warn" title="上書き前の最終確認" icon={<AlertTriangle />}>
+	表示されたデータが **本当に使われていない商品か** 確認してください。
+	「更新日」が直近だったり、現在販売中の商品名が表示された場合は、Excel台帳に戻って別の番号を探してください。
+</Callout>
+
+以下の項目を入力・修正します。
+
+| 項目               | 入力内容         | 備考                                              |
+| :----------------- | :--------------- | :------------------------------------------------ |
+| **配信設定**       | `配信する`       | 必ず「する」に変更                                |
+| **品名 1 行目**    | 商品名           | **半角カナ・半角英数は使用禁止** (文字化けします) |
+| **JAN コード**     | 発行されたコード | 13 桁の数字                                       |
+| **計量区分/単価**  | `1：定額`        | 税抜売価を入力                                    |
+| **賞味期限**       | 期限日数         | 例: `1` (翌日)                                    |
+| **保存温度コード** | `000001`         | 常温                                              |
+
+</Step>
+<Step>
+
+### 添加物 (原材料) の入力
+
+「添加物コード」欄の横にある **「変更」** ボタンを押し、原材料登録画面を開きます。
+
+1. **入力:** Excel 台帳やレシピから原材料テキストをコピー＆ペーストします。
+2. **整形:** **「繋げて改行」** ボタン等を活用し、ラベルの幅に収まるようレイアウトを調整します。
+3. **アレルギー:** 特定原材料（卵・乳・小麦など）が正しく表記されているか、レシピと照合してください。
+4. **決定:** 入力が終わったら「決定」を押し、元の画面で **「登録」** をクリックして保存します。
+
+{/* ↓↓↓ 原材料入力画面のスクショを追加！ ↓↓↓ */}
+![原材料入力画面](https://placehold.co/600x400?text=Ingredients+Input+Screen)
+
+</Step>
+<Step>
+
+### マスタ配信
+
+登録したデータを店舗の機械へ送信します。
+
+1. 上部メニュー **「メンテナンス」** タブ > **「今すぐマスタ配信」** を選択します。
+2. 送信先の店舗にチェックを入れます（基本は全店舗）。
+3. **「配信する」** ボタンをクリックします。
+
+</Step>
+<Step>
+
+### 店舗での確認 (実機テスト)
+
+ここからは店舗の実機（ラベラー）での操作です。
+
+1. ラベラー機で **「開設処理」** を行い、最新のマスタデータを受信します。
+2. 登録した呼び出し番号を入力し、ラベルを 1 枚テスト発行します。
+3. 印字されたラベルを目視で確認します。
+
+<div className="flex flex-col gap-2 my-4 p-4 border border-red-200 rounded-lg bg-red-50 dark:bg-red-900/20">
+	<div className="font-bold text-red-600 flex items-center gap-2">
+		<CheckSquare /> <span>ラベル最終チェックリスト</span>
+	</div>
+	<div className="text-sm space-y-1 pl-6">
+		<label className="flex items-center gap-2">
+			<input type="checkbox" /> 原材料名に間違いや抜け漏れはないか？
+		</label>
+		<label className="flex items-center gap-2">
+			<input type="checkbox" /> **アレルギー表示** は正しいか？（最重要）
+		</label>
+		<label className="flex items-center gap-2">
+			<input type="checkbox" /> 商品名・価格は正しいか？
+		</label>
+		<label className="flex items-center gap-2">
+			<input type="checkbox" /> 消費期限の日付は正しく計算されているか？
+		</label>
+	</div>
+</div>
+
+</Step>
+</Steps>

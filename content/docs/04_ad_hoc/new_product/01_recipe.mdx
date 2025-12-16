@@ -1,0 +1,96 @@
+---
+title: 'Step 1: レシピ保存'
+description: 新商品のレシピデータを作成し、共有フォルダへ保存する手順です。
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+import {
+	FileText,
+	FolderOpen,
+	CheckCircle,
+	AlertCircle,
+	Copy,
+	XCircle,
+	Check,
+} from 'lucide-react';
+
+# Step 1: レシピの保存
+
+まずは新商品のレシピデータを作成し、所定のフォルダへ保存します。
+このレシピは後で本社へも送付し、マスタ登録の基礎データとなります。
+
+## 📋 レシピへの記入事項
+
+以下の 7 項目は、登録時に必ず必要になるので漏れなく記入してください。
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+	<div className="flex items-center gap-2">
+		<CheckCircle className="text-green-600 shrink-0" /> <span>商品名</span>
+	</div>
+	<div className="flex items-center gap-2">
+		<CheckCircle className="text-green-600 shrink-0" /> <span>売価 (税抜)</span>
+	</div>
+	<div className="flex items-center gap-2">
+		<CheckCircle className="text-green-600 shrink-0" />{' '}
+		<span>ホイロ温度・時間</span>
+	</div>
+	<div className="flex items-center gap-2">
+		<CheckCircle className="text-green-600 shrink-0" />{' '}
+		<span>窯温度・時間</span>
+	</div>
+	<div className="flex items-center gap-2">
+		<CheckCircle className="text-green-600 shrink-0" /> <span>工程</span>
+	</div>
+	<div className="flex items-center gap-2">
+		<CheckCircle className="text-green-600 shrink-0" />{' '}
+		<span>原材料名・配合</span>
+	</div>
+	<div className="flex items-center gap-2">
+		<CheckCircle className="text-green-600 shrink-0" />{' '}
+		<span>商品特徴 (POP用)</span>
+	</div>
+</div>
+
+## 📂 保存手順
+
+<Steps>
+<Step>
+
+### 保存先フォルダを開く
+
+以下のフォルダを開きます。
+
+- **場所:** `Dropbox` > `共有` > `レシピ` > `新ボンジュール` > `商品レシピ`
+
+<Callout type="info" title="フォルダに一発で移動する方法" icon={<FolderOpen />}>
+    以下のパスをコピーして、エクスプローラーのアドレスバーに貼り付けると便利です！
+
+    ```txt
+    C:\Users\nanbu\Dropbox\共有\レシピ\新ボンジュール\商品レシピ\
+    ```
+
+</Callout>
+
+</Step>
+<Step>
+
+### 名前を付けて保存
+
+ファイル名は **「商品名のみ」** にしてください。
+
+|                 判定                 | 例                       | 理由                                     |
+| :----------------------------------: | :----------------------- | :--------------------------------------- |
+| <Check className="text-green-600" /> | **`あんぱん.xlsx`**      | シンプルで検索しやすい                   |
+| <XCircle className="text-red-500" /> | `20251216_あんぱん.xlsx` | 日付を入れるとリンク切れの原因になります |
+
+</Step>
+<Step>
+
+### 完了確認
+
+フォルダ内にファイルが保存されたことを確認したら、次のステップへ進みます。
+作成したファイルは、**[Step 2: 本社への申請](./02_application)** で使用するので、開いたままにしておくとスムーズです。
+
+</Step>
+</Steps>

@@ -1,0 +1,94 @@
+---
+title: 'Step 2: 本社への申請'
+description: 新商品のJANコード発行のため、本社へ申請書とレシピを送付する手順です。
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+import {
+	FileText,
+	Mail,
+	AlertTriangle,
+	FolderOpen,
+	Copy,
+	CheckSquare,
+	Calendar,
+} from 'lucide-react';
+
+# Step 2: 本社への申請 (JAN 発行)
+
+新商品を販売するためには、JAN コード（バーコード）が必要です。
+作成したレシピと申請書を本社へ送付し、マスタ登録を依頼します。
+
+<Callout title="使用するファイル" icon={<FileText />}>
+	**CB新規登録申請書.xlsx**
+
+    * **場所:** `デスクトップ` > `新規登録` フォルダ内
+    * **フルパス:** `C:\Users\nanbu\OneDrive\Desktop\新規登録\`
+
+</Callout>
+
+## 📋 申請手順
+
+<Steps>
+<Step>
+
+### 申請書を開く
+
+上記のフォルダにある `CB新規登録申請書.xlsx` を開きます。
+
+</Step>
+<Step>
+
+### POS 発行日の確認（重要）
+
+まず、Excel 画面下部のシート見出しから **「Sheet2」** をクリックして開きます。
+そこに入力されている **「POS 発行日」** の日付を確認し、メモしてください。
+
+{/* ↓↓↓ ここにスクショを追加したよ！後で画像を差し替えてね！ ↓↓↓ */}
+![Sheet2のPOS発行日確認](https://placehold.co/600x400?text=Check+Sheet2+Date)
+
+<Callout type="warn" title="必ず確認してください" icon={<Calendar />}>
+	この日付を間違えると、レジの登録日とズレが生じ、販売できない期間が発生する可能性があります。
+	確認後は、元の「新規登録申請書」シートに戻ってください。
+</Callout>
+
+</Step>
+<Step>
+
+### 必要事項の入力
+
+以下の 4 項目を入力します。
+
+1. **商品名:** 正式名称を入力
+2. **レシート品名:** レシートに印字される短い名前（半角カタカナ）
+3. **売価:** 税抜価格
+4. **日付:** 先ほど確認した「POS 発行日」を入力
+
+入力が完了したら、ファイルを **上書き保存** して閉じます。
+
+</Step>
+<Step>
+
+### メール送信
+
+本社の **江藤さん** 宛にメールを送付します。
+以下の 2 つのファイルを必ず添付してください。
+
+1. **CB 新規登録申請書.xlsx** （今保存したもの）
+2. **商品レシピ** （Step 1 で保存したもの）
+
+<Callout type="error" title="添付忘れに注意" icon={<AlertTriangle />}>
+	申請書だけでなく、**レシピもセットで** 送付してください。
+</Callout>
+
+</Step>
+<Step>
+
+### 完了
+
+江藤さんから JAN コードの連絡が来るのを待ちます。
+連絡が来たら、次の **[Step 3: ラベラー登録](./03_labeler)** へ進んでください。
+
+</Step>
+</Steps>
