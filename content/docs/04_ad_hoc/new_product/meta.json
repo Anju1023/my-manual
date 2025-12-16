@@ -1,0 +1,11 @@
+{
+	"pages": [
+		"01_recipe",
+		"02_application",
+		"03_labeler",
+		"04_cb_data",
+		"05_t_data",
+		"06_print",
+		"07_layout"
+	]
+}
