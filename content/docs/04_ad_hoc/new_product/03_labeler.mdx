@@ -120,25 +120,14 @@ import {
 2. 登録した呼び出し番号を入力し、ラベルを 1 枚テスト発行します。
 3. 印字されたラベルを目視で確認します。
 
-<div className="flex flex-col gap-2 my-4 p-4 border border-red-200 rounded-lg bg-red-50 dark:bg-red-900/20">
-	<div className="font-bold text-red-600 flex items-center gap-2">
-		<CheckSquare /> <span>ラベル最終チェックリスト</span>
-	</div>
-	<div className="text-sm space-y-1 pl-6">
-		<label className="flex items-center gap-2">
-			<input type="checkbox" /> 原材料名に間違いや抜け漏れはないか？
-		</label>
-		<label className="flex items-center gap-2">
-			<input type="checkbox" /> **アレルギー表示** は正しいか？（最重要）
-		</label>
-		<label className="flex items-center gap-2">
-			<input type="checkbox" /> 商品名・価格は正しいか？
-		</label>
-		<label className="flex items-center gap-2">
-			<input type="checkbox" /> 消費期限の日付は正しく計算されているか？
-		</label>
-	</div>
-</div>
+<Callout type="error" title="ラベル最終チェックリスト" icon={<CheckSquare />}>
+    発行されたラベルと、**商品レシピ** を見比べてください。
 
+    - [ ] 原材料名に間違いや抜け漏れはないか？
+    - [ ] **アレルギー表示** は正しいか？（最重要）
+    - [ ] 商品名・価格は正しいか？
+    - [ ] 消費期限の日付は正しく計算されているか？
+
+</Callout>
 </Step>
 </Steps>

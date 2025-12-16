@@ -1,3 +1,86 @@
 @import 'tailwindcss';
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+
+@theme {
+	/* 🍞 カラー設定 (HSL形式)
+     H (色相): 0=赤, 30=オレンジ, 60=黄, 120=緑...
+     S (鮮やかさ): 100%がビビッド, 0%がグレー
+     L (明るさ): 100%が白, 0%が黒
+  */
+
+	/* 🥐 メインカラー：落ち着いたテラコッタ・ブラウン */
+	/* 旧: hsl(23 95% 60%) ← ギラギラのオレンジ */
+	/* 新: hsl(30 60% 55%) ← 落ち着いた焼き色 */
+	--color-fd-primary: hsl(30 60% 55%);
+	--color-fd-primary-foreground: hsl(0 0% 100%);
+
+	/* 背景色：ほんのり温かいミルクホワイト */
+	--color-fd-background: hsl(36 30% 98%);
+
+	/* 文字色：濃いエスプレッソ色 */
+	--color-fd-foreground: hsl(20 15% 20%);
+
+	/* カードなどの背景：白 */
+	--color-fd-card: hsl(0 0% 100%);
+	--color-fd-card-foreground: hsl(20 15% 20%);
+
+	--color-fd-popover: hsl(0 0% 100%);
+	--color-fd-popover-foreground: hsl(20 15% 20%);
+
+	/* ボーダーライン：ミルクティー色 */
+	--color-fd-border: hsl(30 15% 88%);
+	--color-fd-input: hsl(30 15% 88%);
+
+	/* 薄い背景色（サイドバーやホバー時）：薄いベージュ */
+	--color-fd-muted: hsl(30 20% 94%);
+	--color-fd-muted-foreground: hsl(20 10% 40%);
+
+	/* アクセント：少し濃いめのベージュ */
+	--color-fd-accent: hsl(30 25% 90%);
+	--color-fd-accent-foreground: hsl(20 15% 20%);
+
+	/* 破壊的なアクション（削除ボタンなど）：落ち着いた赤 */
+	--color-fd-destructive: hsl(0 60% 55%);
+	--color-fd-destructive-foreground: hsl(0 0% 98%);
+
+	/* リンクの色（青ではなくテーマカラーに合わせる） */
+	--color-fd-ring: hsl(30 60% 55%);
+}
+
+/* 🌙 ダークモード：落ち着いたカフェバー風 */
+.dark {
+	--color-fd-background: hsl(25 15% 12%);
+	--color-fd-foreground: hsl(35 20% 90%);
+
+	/* メインカラー：カフェオレ色 */
+	--color-fd-primary: hsl(30 50% 60%);
+	--color-fd-primary-foreground: hsl(25 15% 12%);
+
+	--color-fd-card: hsl(25 15% 15%);
+	--color-fd-card-foreground: hsl(35 20% 90%);
+
+	--color-fd-popover: hsl(25 15% 15%);
+	--color-fd-popover-foreground: hsl(35 20% 90%);
+
+	--color-fd-border: hsl(25 15% 25%);
+	--color-fd-input: hsl(25 15% 25%);
+
+	--color-fd-muted: hsl(25 15% 20%);
+	--color-fd-muted-foreground: hsl(35 15% 70%);
+
+	--color-fd-accent: hsl(25 15% 25%);
+	--color-fd-accent-foreground: hsl(35 20% 90%);
+
+	--color-fd-destructive: hsl(0 50% 40%);
+	--color-fd-destructive-foreground: hsl(0 0% 98%);
+
+	--color-fd-ring: hsl(30 50% 60%);
+}
+
+/* リンクの装飾 */
+main a:hover {
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-underline-offset: 4px;
+}
