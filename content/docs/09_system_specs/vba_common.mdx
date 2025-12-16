@@ -1,0 +1,179 @@
+---
+title: '共通関数・クラス'
+description: システム全体で使用されている共通関数や、商品クラス (ClsItem) の仕様解説とソースコードです。
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import {
+	FileCode,
+	Box,
+	Variable,
+	FunctionSquare,
+	AlertTriangle,
+} from 'lucide-react';
+
+# 🧩 共通関数・クラスモジュール
+
+システム全体で共有されているクラス定義と、標準モジュールの便利関数群です。
+データの読み込みや計算処理は、これらの共通部品を呼び出すことで実装されています。
+
+<Callout type="warn" title="開発環境の注意点" icon={<AlertTriangle />}>
+	本システムのVBAは **`Scripting.Dictionary`** を多用しています。
+	VBAエディタのメニューから `ツール` > `参照設定` を開き、**「Microsoft
+	Scripting Runtime」** にチェックが入っていることを確認してください。
+</Callout>
+
+## 📦 クラスモジュール
+
+### `ClsItem` (商品オブジェクト)
+
+商品マスタの 1 行分のデータを格納するクラスです。
+`LoadItemDictionary` 関数により、全商品がこのクラスのインスタンスとしてメモリにロードされます。
+
+#### プロパティ・メソッド
+
+| プロパティ名         | 型     | 説明                                      |
+| :------------------- | :----- | :---------------------------------------- |
+| `ItemID`, `ItemName` | String | 商品 ID, 商品名                           |
+| `Price`, `Price2`    | Long   | 売価 (ローゼン), クリエ売価               |
+| `Frozen`             | String | 冷生地区分 (`〇`: 冷凍 / `×`: スクラッチ) |
+| `FrozenDaysBefore`   | Long   | 生地出し日数 (納品日からのオフセット)     |
+| `QtyPerUnit`         | Double | 生地数 (1 単位あたりの玉数)               |
+| `UnitCount`          | Double | 何個入 (1 袋あたりの個数)                 |
+
+<Accordions>
+<Accordion title="ソースコード (ClsItem)" icon={<FileCode />}>
+```vb
+Option Explicit
+Public ItemID As String '商品ID
+Public ItemName As String '商品名
+Public Price As Double '売価
+Public Price2 As Double 'クリエ売価
+Public Label As Long 'ラベル番号
+Public Label2 As Long 'クリエラベル
+Public Finder As Long '金探番号
+Public Expiry As Long '消費期限
+Public Dough As String '生地名
+Public Frozen As String '冷生地表
+Public Display As String '並べる表〇
+Public FrozenDaysBefore As Long '生地出しの日
+Public DisplayDays As Long '並べる日
+Public QtyPerUnit As Double '生地数
+Public UnitCount As Double '何個入
+Public maxQty As Long '最大数
+Public Multiple As Double '倍数
+Public Bag As String '袋の種類
+Public Finish As String '終売
+
+' 生地出し数の計算
+Public Function OutputQty(ByVal count As Double) As Long
+If UnitCount = 0 Then UnitCount = 1
+If QtyPerUnit = 0 Then QtyPerUnit = 1
+OutputQty = WorksheetFunction.RoundUp(count _ UnitCount _ QtyPerUnit, 0)
+End Function
+
+' 並べる数の計算
+Public Function DisplayQty(ByVal count As Double) As Long
+If UnitCount = 0 Then UnitCount = 1
+DisplayQty = WorksheetFunction.RoundUp(count \* UnitCount, 0)
+End Function
+
+````
+</Accordion>
+</Accordions>
+
+### `ClsLabel` (ラベル集計用)
+
+ラベル出し表の作成時に使用される一時的なクラスです。
+曜日ごとの数量と、計算された消費期限を保持します。
+
+---
+
+## 🛠️ 共通関数 (標準モジュール)
+
+### 📚 辞書ロード系
+
+Excel のテーブルデータを読み込み、検索しやすい形（Dictionary）に変換して返します。
+
+<Accordions>
+<Accordion title="LoadItemDictionary / LoadStoreDictionary" icon={<FileCode />}>
+```vb
+Public Function LoadItemDictionary() As Object
+    Dim dic As Object, wb As Workbook, ws As Worksheet, tbl As ListObject
+    Set dic = CreateObject("Scripting.Dictionary")
+    ' ... (中略: 商品データテーブルをループしてClsItemに格納)
+    Set LoadItemDictionary = dic
+End Function
+
+Public Function LoadStoreDictionary() As Object
+    ' 店舗マスターを読み込み、店舗名とIDの対応表を作成
+    ' ...
+End Function
+````
+
+</Accordion>
+</Accordions>
+
+### 🧮 文字列・計算処理
+
+よく使う汎用関数です。
+
+- **`Nz(value, [default])`**
+  - 値が `Null`, `Empty`, 空文字の場合に 0 (または指定値) を返します。
+  - 計算時の型エラー防止に使用します。
+- **`GetBaseName(fullName)`**
+  - 商品名からサイズ表記（「1/2」「1 本」等）を削除し、**親名称** を返します。
+- **`ToSafeSheetName(str)`**
+  - シート名に使えない文字を全角に置換します。
+
+<Accordions>
+<Accordion title="ソースコード (便利関数)" icon={<FileCode />}>
+```vb
+Public Function Nz(v, Optional defaultValue As Variant = 0)
+    If IsError(v) Or IsEmpty(v) Or Trim(v & "") = "" Then
+        Nz = defaultValue
+    Else
+        Nz = v
+    End If
+End Function
+
+Function GetBaseName(ByVal fullName As String) As String
+Dim temp As String
+temp = Trim(fullName)
+' サイズ表記を削除して正規化
+temp = Replace(temp, " 1/2 本", "")
+temp = Replace(temp, " 1/2", "")
+' ... (その他の置換)
+GetBaseName = temp
+End Function
+
+````
+</Accordion>
+</Accordions>
+
+### 🍞 天板計算ロジック
+
+「並べる表」などで使用される、天板枚数の計算ロジックです。
+マスタの `最大数(MaxQty)` と `倍数(Multiple)` を使用して、最も効率的な並べ方を文字列で返します。
+
+<Accordions>
+<Accordion title="NarabeSingle (計算ロジック)" icon={<FileCode />}>
+```vb
+Private Function NarabeSingle(dic As Object, panName As String, panQty As Long) As String
+    ' ... (商品マスタ取得)
+
+    ' 総数を倍数で割って、天板枚数を計算
+    Dim a As Double, b As Double, c As Long
+    a = panQty / proQty
+    b = maxQty / proQty
+    c = Application.RoundUp(a / b, 0)
+
+    ' ... (詳細な枚数配分ロジック)
+
+    NarabeSingle = (b * proQty) & "×" & e & "、" & ((b - 1) * proQty) & "×" & d
+End Function
+````
+
+</Accordion>
+</Accordions>
