@@ -5,12 +5,14 @@ description: 毎月決まった時期に行う事務処理（棚卸し、シフ�
 
 import { Card, Cards } from 'fumadocs-ui/components/card';
 import { Callout } from 'fumadocs-ui/components/callout';
+import { Files, File, Folder } from 'fumadocs-ui/components/files';
 import {
 	ClipboardList,
 	Users,
 	CalendarRange,
 	FileText,
 	Clock,
+	FileSpreadsheet,
 } from 'lucide-react';
 
 # 🗓️ 月末・月初の業務 (Monthly Routine)
@@ -23,6 +25,40 @@ import {
     
     * **棚卸し:** `デスクトップ` > `センター棚卸表` フォルダ 
     * **シフト:** `デスクトップ` > `よく使う` > `シフト表.xlsx`
+
+    <Files>
+    	<Folder name='デスクトップ' defaultOpen>
+    		<Folder name='センター棚卸表'>
+    			<File name='南部センターベーカリー棚卸表YYYY-MM.xlsx' icon={<FileSpreadsheet />} />
+    			<File name='南部センターベーカリー棚卸表YYYY-MM.xlsx' icon={<FileSpreadsheet />} />
+    			<File name='南部センターベーカリー棚卸表YYYY-MM.xlsx' icon={<FileSpreadsheet />} />
+    			<File name='南部センターベーカリー棚卸表YYYY-MM.xlsx' icon={<FileSpreadsheet />} />
+    		</Folder>
+    		<Folder name='よく使う' defaultOpen>
+    			<Folder name='Backup'>
+    				<File name='CB商品データYYYY-MM-DD更新後.xlsm' icon={<FileSpreadsheet />} />
+    				<File name='CB商品データYYYY-MM-DD更新前.xlsm' icon={<FileSpreadsheet />} />
+    				<File name='CB商品データYYYY-MM-DD〇〇店変更.xlsm' icon={<FileSpreadsheet />} />
+    				<File name='CB商品データYYYY-MM-DD更新後.xlsm' icon={<FileSpreadsheet />} />
+    				...
+    			</Folder>
+    			<Folder name='商品データ'>
+    				<Folder name='商品ごとの表'></Folder>
+    				<File name='CB商品データ.xlsm' icon={<FileSpreadsheet />} />
+    			</Folder>
+    			<Folder name='伝票作成'>
+    				<Folder name='納品記録'>
+    					<Folder name='納品記録PDF'>
+    						<Folder name='YYYY-MM'></Folder>
+    						<Folder name='YYYY-MM'></Folder>
+    					</Folder>
+    				</Folder>
+    				<File name='T納品データ.xlsm' icon={<FileSpreadsheet />} />
+    			</Folder>
+    			<File name='シフト表.xlsx' icon={<FileSpreadsheet />} />
+    		</Folder>
+    	</Folder>
+    </Files>
 
 </Callout>
 

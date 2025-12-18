@@ -5,6 +5,7 @@ description: 月末に行う在庫数の集計と、本社への報告手順で�
 
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Callout } from 'fumadocs-ui/components/callout';
+import { Files, File, Folder } from 'fumadocs-ui/components/files';
 import {
 	FileText,
 	Mail,
@@ -12,6 +13,7 @@ import {
 	AlertTriangle,
 	Printer,
 	Copy,
+	FileSpreadsheet,
 } from 'lucide-react';
 
 # 📝 棚卸し・清書
@@ -23,7 +25,17 @@ import {
 	**センター棚卸表** 
     
     * **場所:** `デスクトップ` > `センター棚卸表`
-    * **フルパス:** `C:\Users\nanbu\OneDrive\Desktop\センター棚卸表\`
+
+    <Files>
+    	<Folder name='デスクトップ' defaultOpen>
+    		<Folder name='センター棚卸表' defaultOpen>
+    			<File name='南部センターベーカリー棚卸表YYYY-MM.xlsx' icon={<FileSpreadsheet />} />
+    			<File name='南部センターベーカリー棚卸表YYYY-MM.xlsx' icon={<FileSpreadsheet />} />
+    			<File name='南部センターベーカリー棚卸表YYYY-MM.xlsx' icon={<FileSpreadsheet />} />
+    			<File name='南部センターベーカリー棚卸表YYYY-MM.xlsx' icon={<FileSpreadsheet />} />
+    		</Folder>
+    	</Folder>
+    </Files>
 
 </Callout>
 

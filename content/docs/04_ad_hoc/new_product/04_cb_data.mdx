@@ -5,6 +5,7 @@ description: 製造指示書を作成するためのマスターデータ (CB商
 
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Callout } from 'fumadocs-ui/components/callout';
+import { Files, File, Folder } from 'fumadocs-ui/components/files';
 import {
 	FileText,
 	MousePointerClick,
@@ -13,6 +14,7 @@ import {
 	CheckCircle,
 	Database,
 	Keyboard,
+	FileSpreadsheet,
 } from 'lucide-react';
 
 # Step 4: CB 商品データの登録
@@ -24,7 +26,33 @@ import {
 	**CB商品データ.xlsm**
 
     * **場所:** `デスクトップ` > `よく使う` > `商品データ` フォルダ内
-    * **フルパス:** `C:\Users\nanbu\OneDrive\Desktop\よく使う\商品データ\`
+    <Files>
+    	<Folder name='デスクトップ' defaultOpen>
+    		<Folder name='よく使う' defaultOpen>
+    			<Folder name='Backup'>
+    				<File name='CB商品データYYYY-MM-DD更新後.xlsm' icon={<FileSpreadsheet />} />
+    				<File name='CB商品データYYYY-MM-DD更新前.xlsm' icon={<FileSpreadsheet />} />
+    				<File name='CB商品データYYYY-MM-DD〇〇店変更.xlsm' icon={<FileSpreadsheet />} />
+    				<File name='CB商品データYYYY-MM-DD更新後.xlsm' icon={<FileSpreadsheet />} />
+    				...
+    			</Folder>
+    			<Folder name='商品データ' defaultOpen>
+    				<Folder name='商品ごとの表'></Folder>
+    				<File name='CB商品データ.xlsm' icon={<FileSpreadsheet />} />
+    			</Folder>
+    			<Folder name='伝票作成'>
+    				<Folder name='納品記録'>
+    					<Folder name='納品記録PDF'>
+    						<Folder name='YYYY-MM'></Folder>
+    						<Folder name='YYYY-MM'></Folder>
+    					</Folder>
+    				</Folder>
+    				<File name='T納品データ.xlsm' icon={<FileSpreadsheet />} />
+    			</Folder>
+    			<File name='シフト表.xlsx' icon={<FileSpreadsheet />} />
+    		</Folder>
+    	</Folder>
+    </Files>
 
 </Callout>
 

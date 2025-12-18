@@ -13,6 +13,7 @@ import {
 	Copy,
 	CheckSquare,
 	Calendar,
+	Compass,
 } from 'lucide-react';
 import { Files, File, Folder } from 'fumadocs-ui/components/files';
 import { FileSpreadsheet } from 'lucide-react';
@@ -28,7 +29,10 @@ import { FileSpreadsheet } from 'lucide-react';
     <Files>
     	<Folder name='デスクトップ' defaultOpen>
     		<Folder name='新規登録' defaultOpen>
+    			<File name='@LABEL ログイン' icon={<Compass />} />
     			<File name='CB新規登録申請書.xlsx' icon={<FileSpreadsheet />} />
+    			<File name='Dropbox' icon={<Compass />} />
+    			<File name='eBASE' icon={<Compass />} />
     		</Folder>
     	</Folder>
     </Files>

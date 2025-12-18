@@ -5,7 +5,8 @@ description: 週に2回、トレーや袋などの消耗品を発注する手順
 
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Callout } from 'fumadocs-ui/components/callout';
-import { FileText, Mail, CheckCircle } from 'lucide-react';
+import { Files, File, Folder } from 'fumadocs-ui/components/files';
+import { FileText, Mail, CheckCircle, FileSpreadsheet } from 'lucide-react';
 
 # 📦 消耗品の発注
 
@@ -16,7 +17,14 @@ import { FileText, Mail, CheckCircle } from 'lucide-react';
 	**エフピコ発注書.xlsx**
 
     * **場所:** `デスクトップ` > `発注書` フォルダ内
-    * **フルパス:** `C:\Users\nanbu\OneDrive\Desktop\発注書\エフピコ発注書.xlsx`
+    <Files>
+        <Folder name='デスクトップ' defaultOpen>
+            <Folder name='発注書' defaultOpen>
+                <File name='エフピコ発注書.xlsx' icon={<FileSpreadsheet />} />
+                <File name='発注書.xlsx' icon={<FileSpreadsheet />} />
+            </Folder>
+        </Folder>
+    </Files>
 
 </Callout>
 

@@ -6,6 +6,7 @@ description: 翌月分のシフト表を作成し、スタッフへ共有する�
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Files, File, Folder } from 'fumadocs-ui/components/files';
 import {
 	FileText,
 	Smartphone,
@@ -17,6 +18,7 @@ import {
 	Calculator,
 	Image,
 	CheckCircle,
+	FileSpreadsheet,
 } from 'lucide-react';
 
 # 🗓️ シフト作成・清書
@@ -27,8 +29,35 @@ import {
 <Callout title="使用するファイル" icon={<FileText />}>
 	**シフト表.xlsx** 
     
-    * **場所:** `デスクトップ` > `よく使う` フォルダ内 
-    * **フルパス:** `C:\Users\nanbu\OneDrive\Desktop\よく使う\シフト表.xlsx`
+    * **場所:** `デスクトップ` > `よく使う` フォルダ内
+
+    <Files>
+    	<Folder name='デスクトップ' defaultOpen>
+    		<Folder name='よく使う' defaultOpen>
+    			<Folder name='Backup'>
+    				<File name='CB商品データYYYY-MM-DD更新後.xlsm' icon={<FileSpreadsheet />} />
+    				<File name='CB商品データYYYY-MM-DD更新前.xlsm' icon={<FileSpreadsheet />} />
+    				<File name='CB商品データYYYY-MM-DD〇〇店変更.xlsm' icon={<FileSpreadsheet />} />
+    				<File name='CB商品データYYYY-MM-DD更新後.xlsm' icon={<FileSpreadsheet />} />
+    				...
+    			</Folder>
+    			<Folder name='商品データ'>
+    				<Folder name='商品ごとの表'></Folder>
+    				<File name='CB商品データ.xlsm' icon={<FileSpreadsheet />} />
+    			</Folder>
+    			<Folder name='伝票作成'>
+    				<Folder name='納品記録'>
+    					<Folder name='納品記録PDF'>
+    						<Folder name='YYYY-MM'></Folder>
+    						<Folder name='YYYY-MM'></Folder>
+    					</Folder>
+    				</Folder>
+    				<File name='T納品データ.xlsm' icon={<FileSpreadsheet />} />
+    			</Folder>
+    			<File name='シフト表.xlsx' icon={<FileSpreadsheet />} />
+    		</Folder>
+    	</Folder>
+    </Files>
 
 </Callout>
 
