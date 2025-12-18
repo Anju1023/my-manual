@@ -14,7 +14,7 @@ const notoSansJP = Noto_Sans_JP({
 
 export const metadata: Metadata = {
 	title: {
-		template: '%s | ${SITE_CONFIG.title}',
+		template: `%s | ${SITE_CONFIG.title}`,
 		default: SITE_CONFIG.title,
 	},
 	description: SITE_CONFIG.description,

@@ -5,6 +5,7 @@ description: システム全体で使用されている共通関数や、商品�
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
 import {
 	FileCode,
 	Box,
@@ -31,16 +32,44 @@ import {
 商品マスタの 1 行分のデータを格納するクラスです。
 `LoadItemDictionary` 関数により、全商品がこのクラスのインスタンスとしてメモリにロードされます。
 
-#### プロパティ・メソッド
+#### プロパティ定義
 
-| プロパティ名         | 型     | 説明                                      |
-| :------------------- | :----- | :---------------------------------------- |
-| `ItemID`, `ItemName` | String | 商品 ID, 商品名                           |
-| `Price`, `Price2`    | Long   | 売価 (ローゼン), クリエ売価               |
-| `Frozen`             | String | 冷生地区分 (`〇`: 冷凍 / `×`: スクラッチ) |
-| `FrozenDaysBefore`   | Long   | 生地出し日数 (納品日からのオフセット)     |
-| `QtyPerUnit`         | Double | 生地数 (1 単位あたりの玉数)               |
-| `UnitCount`          | Double | 何個入 (1 袋あたりの個数)                 |
+<TypeTable
+	type={{
+		ItemID: {
+			description: '商品ID (ユニークキー)',
+			type: 'String',
+		},
+		ItemName: {
+			description: '商品名',
+			type: 'String',
+		},
+		Price: {
+			description: '売価 (ローゼン)',
+			type: 'Long',
+		},
+		Price2: {
+			description: 'クリエ売価',
+			type: 'Long',
+		},
+		Frozen: {
+			description: '冷生地区分 (〇: 冷凍 / ×: スクラッチ)',
+			type: 'String',
+		},
+		FrozenDaysBefore: {
+			description: '生地出し日数 (納品日からのオフセット)',
+			type: 'Long',
+		},
+		QtyPerUnit: {
+			description: '生地数 (1 単位あたりの玉数)',
+			type: 'Double',
+		},
+		UnitCount: {
+			description: '何個入 (1 袋あたりの個数)',
+			type: 'Double',
+		},
+	}}
+/>
 
 <Accordions>
 <Accordion title="ソースコード (ClsItem)" icon={<FileCode />}>
