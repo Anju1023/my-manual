@@ -15,6 +15,7 @@ import {
 	Workflow,
 } from 'lucide-react';
 import { Callout } from 'fumadocs-ui/components/callout';
+import { SITE_CONFIG } from '@/lib/constants.ts';
 
 # 🔧 管理者向け情報 (System Specs)
 
@@ -89,7 +90,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
     - 撮影した画像と共に、以下の担当者へ状況を報告してください。
 
 <Callout type="error" title="システム担当連絡先" icon={<Phone />}>
-	* **担当者:** 結城 
+	* **担当者:** {SITE_CONFIG.admin}
     * **連絡手段:** LINE または 電話
 
 </Callout>
