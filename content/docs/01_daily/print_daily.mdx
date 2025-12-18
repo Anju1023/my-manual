@@ -13,6 +13,8 @@ import {
 	Printer,
 	HelpCircle,
 } from 'lucide-react';
+import { Files, File, Folder } from 'fumadocs-ui/components/files';
+import { FileSpreadsheet } from 'lucide-react';
 
 # 🖨️ 日替わり表の印刷
 
@@ -20,12 +22,19 @@ import {
 この作業は **午前 10:00 まで** に完了させてください。
 
 <Callout title="使用するファイル" icon={<FileText />}>
-	**CB商品データ.xlsm** 
-    
-    * **場所:** `デスクトップ` > `よく使う` > `商品データ` フォルダ内
+    このファイルを開いて作業します。
+
+    <Files>
+        <Folder name='デスクトップ' defaultOpen>
+            <Folder name='よく使う' defaultOpen>
+                <Folder name='商品データ' defaultOpen>
+                    <File name='CB商品データ.xlsm' icon={<FileSpreadsheet />} />
+                </Folder>
+            </Folder>
+        </Folder>
+    </Files>
 
 </Callout>
-
 ## 📋 操作手順
 
 <Steps>

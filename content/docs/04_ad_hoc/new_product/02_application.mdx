@@ -14,6 +14,8 @@ import {
 	CheckSquare,
 	Calendar,
 } from 'lucide-react';
+import { Files, File, Folder } from 'fumadocs-ui/components/files';
+import { FileSpreadsheet } from 'lucide-react';
 
 # Step 2: 本社への申請 (JAN 発行)
 
@@ -23,8 +25,13 @@ import {
 <Callout title="使用するファイル" icon={<FileText />}>
 	**CB新規登録申請書.xlsx**
 
-    * **場所:** `デスクトップ` > `新規登録` フォルダ内
-    * **フルパス:** `C:\Users\nanbu\OneDrive\Desktop\新規登録\`
+    <Files>
+    	<Folder name='デスクトップ' defaultOpen>
+    		<Folder name='新規登録' defaultOpen>
+    			<File name='CB新規登録申請書.xlsx' icon={<FileSpreadsheet />} />
+    		</Folder>
+    	</Folder>
+    </Files>
 
 </Callout>
 
