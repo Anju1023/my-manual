@@ -2,6 +2,7 @@ import { RootProvider } from 'fumadocs-ui/provider/next';
 import './global.css';
 import { Inter, Noto_Sans_JP } from 'next/font/google';
 import { Metadata, Viewport } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -13,10 +14,10 @@ const notoSansJP = Noto_Sans_JP({
 
 export const metadata: Metadata = {
 	title: {
-		template: '%s | 南部センターベーカリー業務マニュアル',
-		default: '南部センターベーカリー業務マニュアル',
+		template: '%s | ${SITE_CONFIG.title}',
+		default: SITE_CONFIG.title,
 	},
-	description: '南部センターベーカリーの業務マニュアルサイトです。',
+	description: SITE_CONFIG.description,
 };
 
 export const viewport: Viewport = {

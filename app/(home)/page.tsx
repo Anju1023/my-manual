@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Card, Cards } from 'fumadocs-ui/components/card';
-import { Callout } from 'fumadocs-ui/components/callout'; // 👈 追加
+import { Callout } from 'fumadocs-ui/components/callout';
 import {
 	Calendar,
 	ShoppingCart,
@@ -11,6 +11,7 @@ import {
 	Phone,
 	Search,
 } from 'lucide-react';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export default function HomePage() {
 	return (
@@ -18,14 +19,12 @@ export default function HomePage() {
 			{/* ヒーローセクション */}
 			<div className="text-center mb-16 space-y-4">
 				<h1 className="text-4xl font-extrabold text-fd-foreground sm:text-5xl leading-tight">
-					🍞 南部センター
+					🍞 {SITE_CONFIG.department}
 					<br />
-					ベーカリー業務マニュアル
+					{SITE_CONFIG.manualName}
 				</h1>
-				<p className="text-lg text-fd-muted-foreground max-w-2xl mx-auto leading-relaxed">
-					事務作業およびシステム操作の手順を体系的にまとめた業務マニュアルです。
-					<br />
-					業務遂行における不明点の確認や、手順の再確認にご活用ください。
+				<p className="text-lg text-fd-muted-foreground max-w-2xl mx-auto leading-relaxed whitespace-pre-wrap">
+					{SITE_CONFIG.heroDescription}
 				</p>
 				<div className="flex justify-center gap-4 mt-8">
 					<Link
@@ -106,7 +105,9 @@ export default function HomePage() {
 				<p className="mb-2">
 					マニュアルを参照しても解決しない場合や、システムエラーが発生した場合は下記担当者へご連絡ください。
 				</p>
-				<p className="font-bold text-lg mt-2">システム担当: 結城</p>
+				<p className="font-bold text-lg mt-2">
+					システム担当: {SITE_CONFIG.admin}
+				</p>
 				<p className="text-sm text-fd-muted-foreground mt-4">
 					※エラー発生時は、画面の写真を添付の上ご報告いただけますと幸いです。
 				</p>
