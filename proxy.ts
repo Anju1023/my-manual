@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export const config = {
-	matcher: ['/:path*'], // すべてのページにロックをかける設定
+	matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
 	// 💻 ローカル開発中（npm run dev）はパスワードなしでOKにする！
 	// （もしローカルでもテストしたいなら、この3行を一時的に消してね）
 	if (process.env.NODE_ENV === 'development') {
