@@ -1,3 +1,4 @@
+
 ```
 my-manual
 ├─ app
@@ -5,12 +6,14 @@ my-manual
 │  │  ├─ layout.tsx
 │  │  └─ page.tsx
 │  ├─ api
-│  │  └─ route.ts
+│  │  └─ search
+│  │     └─ route.ts
 │  ├─ docs
 │  │  ├─ layout.tsx
 │  │  └─ [[...slug]]
 │  │     └─ page.tsx
 │  ├─ global.css
+│  ├─ icon.png
 │  ├─ layout.tsx
 │  ├─ llms-full.txt
 │  │  └─ route.ts
