@@ -13,6 +13,7 @@ import {
 	FileSpreadsheet,
 } from 'lucide-react';
 import { Files, File, Folder } from 'fumadocs-ui/components/files';
+import { SITE_CONFIG } from '@/lib/constants.ts';
 
 # 📅 毎日の業務 (Daily Routine)
 
@@ -91,11 +92,12 @@ import { Files, File, Folder } from 'fumadocs-ui/components/files';
 
 - **マクロ実行中の操作禁止**
 
-  処理中（画面が動いている間）は、キーボードやマウスに触れないでください。処理が中断したり、Excel がフリーズする原因となります。
+  処理中（画面が動いている間）は、キーボードやマウスに触れないでください。\
+  処理が中断したり、Excel がフリーズする原因となります。
 
 - **エラー発生時の対応**
 
-  もしエラー画面が表示された場合や、正常に動作しない場合は、そのまま操作せずにシステム担当（結城）へ連絡してください。
+  もしエラー画面が表示された場合や、正常に動作しない場合は、そのまま操作せずにシステム担当（{SITE_CONFIG.admin}）へ連絡してください。
 
 ---
 

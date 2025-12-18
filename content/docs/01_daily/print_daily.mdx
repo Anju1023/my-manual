@@ -142,9 +142,11 @@ import { Files, File, Folder } from 'fumadocs-ui/components/files';
 
 <Accordions>
 	<Accordion title="ボタンを押しても何も起きない" icon={<HelpCircle />}>
-		**原因:** Excelのマクロが無効になっている可能性があります。 
+		**原因:**\
+		Excelのマクロが無効になっている可能性があります。 
         
-        **対処法:** 画面の上部に「セキュリティの警告」という黄色い帯が出ていませんか？
+        **対処法:**\
+		画面の上部に「セキュリティの警告」という黄色い帯が出ていませんか？\
 		出ている場合は **「コンテンツの有効化」** ボタンを押してください。
 
     </Accordion>
@@ -163,7 +165,7 @@ import { Files, File, Folder } from 'fumadocs-ui/components/files';
 
 <Accordions>
 <Accordion title="日付設定のロジック">
-    各シートの日付セルには `=TODAY() + [参照セル]` という数式が入力されています。
+    各シートの日付セルには `=TODAY() + [参照セル]` という数式が入力されています。\
     「明日」ボタン等のマクロは、この **参照セル（オフセット値）** を書き換えることで日付を制御しています。
 
     - **夜間用 (F1 セル):** `""` (当日)
@@ -171,7 +173,7 @@ import { Files, File, Folder } from 'fumadocs-ui/components/files';
 
 </Accordion>
 <Accordion title="印刷マクロの仕様">
-  ボタンに割り当てられているマクロは `PrintFourSheets` です。
+  ボタンに割り当てられているマクロは `PrintFourSheets` です。\
   以下の 5 つのシートを順番に `ws.PrintOut` メソッドで出力します。
 
 1. 夜間用
