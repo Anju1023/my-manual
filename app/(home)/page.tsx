@@ -73,7 +73,7 @@ export default function HomePage() {
 					</Card>
 					<Card
 						icon={<Settings />}
-						href="/docs/09_system_specs"
+						href="/docs/99_system_specs"
 						title="99. 管理者向け情報"
 					>
 						システム構成図、VBAコード解説、トラブルシューティングガイド

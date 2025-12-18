@@ -12,7 +12,7 @@ folders = [
     '02_weekly',
     '03_monthly',
     '04_ad_hoc',
-    '09_system_specs',
+    '99_system_specs',
 ]
 
 if __name__ == '__main__':
