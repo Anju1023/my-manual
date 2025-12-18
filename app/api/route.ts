@@ -1,15 +1,18 @@
 import { source } from '@/lib/source';
-import { createTokenizer } from '@orama/tokenizers/japanese';
 import { createFromSource } from 'fumadocs-core/search/server';
+import { createTokenizer } from '@orama/tokenizers/japanese';
 
 export const { GET } = createFromSource(source, {
-	// https://docs.orama.com/docs/orama-js/supported-languages
-	search: {
-		locale: 'ja',
-	},
-	configuration: {
-		components: {
-			tokenizer: createTokenizer(),
+	// ここで「日本語用の設定」を登録するんだね！賢い！✨
+	localeMap: {
+		ja: {
+			components: {
+				tokenizer: createTokenizer(),
+			},
+			search: {
+				threshold: 0,
+				tolerance: 0,
+			},
 		},
 	},
 });
