@@ -1,10 +1,19 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import './global.css';
 import { Inter } from 'next/font/google';
+import { Metadata } from 'next';
 
 const inter = Inter({
 	subsets: ['latin'],
 });
+
+export const metadata: Metadata = {
+	title: {
+		template: '%s | 南部センターベーカリー業務マニュアル',
+		default: '南部センターベーカリー業務マニュアル',
+	},
+	description: '南部センターベーカリーの業務マニュアルサイトです。',
+};
 
 export default function Layout({ children }: LayoutProps<'/'>) {
 	return (
