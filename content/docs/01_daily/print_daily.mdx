@@ -15,6 +15,7 @@ import {
 	FileSpreadsheet,
 } from 'lucide-react';
 import { Files, File, Folder } from 'fumadocs-ui/components/files';
+import { SITE_CONFIG } from '@/lib/constants.ts';
 
 # 🖨️ 日替わり表の印刷
 
@@ -73,9 +74,10 @@ import { Files, File, Folder } from 'fumadocs-ui/components/files';
 
 デスクトップの `よく使う` フォルダにある `CB商品データ.xlsm` を開きます。
 
-**⚠️ コンテンツの有効化**
-
-画面上部に「セキュリティの警告」という黄色いバーが出ている場合は、**「コンテンツの有効化」** をクリックしてください。これを行わないとボタンが反応しません。
+<Callout type="warn" title="コンテンツの有効化" icon={<AlertTriangle />}>
+	画面上部に「セキュリティの警告」という黄色いバーが出ている場合は、**「コンテンツの有効化」**
+	をクリックしてください。これを行わないとボタンが反応しません。
+</Callout>
 
 </Step>
 <Step>
@@ -85,7 +87,7 @@ import { Files, File, Folder } from 'fumadocs-ui/components/files';
 「夜間用」シートを開き、画面上部にある **「明日」** ボタンをクリックします。
 ボタンを押すと、各シートの日付が自動的に設定されます。
 
-![日付ボタンの場所](https://placehold.co/600x400?text=Date+Button)
+![日付ボタンの場所](/images/Date_Button.png)
 
 | シート名   | 日付設定       | 用途             |
 | :--------- | :------------- | :--------------- |
@@ -106,7 +108,7 @@ import { Files, File, Folder } from 'fumadocs-ui/components/files';
 シート上にある **「印刷」** ボタンをクリックします。
 プリンターから帳票が出力されます。
 
-![印刷ボタンの場所](https://placehold.co/600x400?text=Print+Button)
+![印刷ボタンの場所](/images/Print_Button.png)
 
 </Step>
 <Step>
@@ -154,7 +156,7 @@ import { Files, File, Folder } from 'fumadocs-ui/components/files';
     	**対処法:**
         1. エラー画面の **「終了」** を押して閉じてください（「デバッグ」は押さない）。
         2. 画面が動かなくなったり、おかしい場合は、Excelを一度閉じて（保存しますか？と聞かれたら「保存しない」を選択）、もう一度開き直してください。
-    	3. それでも直らない場合は、システム担当（結城）へ連絡してください。
+    	3. それでも直らない場合は、システム担当（{SITE_CONFIG.admin}）へ連絡してください。
     </Accordion>
 
 </Accordions>

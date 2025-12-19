@@ -17,6 +17,7 @@ import {
 	CheckCircle,
 	FileSpreadsheet,
 } from 'lucide-react';
+import { SITE_CONFIG } from '@/lib/constants.ts';
 
 # 💾 納品記録の保存
 
@@ -41,8 +42,8 @@ import {
     				<File name='CB商品データ.xlsm' icon={<FileSpreadsheet />} />
     			</Folder>
     			<Folder name='伝票作成' defaultOpen>
-    				<Folder name='納品記録'>
-    					<Folder name='納品記録PDF'>
+    				<Folder name='納品記録' defaultOpen>
+    					<Folder name='納品記録PDF' defaultOpen>
     						<Folder name='YYYY-MM'></Folder>
     						<Folder name='YYYY-MM'></Folder>
     					</Folder>
@@ -93,7 +94,7 @@ import {
 続いて **「納品記録 PDF」** ボタンをクリックします。
 処理中は進捗バーが表示されます。
 
-![PDF保存ボタンの場所](https://placehold.co/600x400?text=PDF+Button)
+![PDF保存ボタンの場所](/images/PDF_Button.png)
 
 </Step>
 <Step>
@@ -109,9 +110,10 @@ import {
    - [ ] 店舗ごとの PDF ファイルが揃っていますか？
    - [ ] **ランダムに 1 つ開いて、金額が `0円` になっていませんか？**
      - （※もし 0 円の場合は、マスタ登録漏れの可能性があります）
+       ![PDFをチェック](/images/PDF_Check.png)
 
 <Callout type="tip" title="便利ワザ">
-	この「納品記録PDF」フォルダのショートカットをデスクトップに作っておくと、毎回の確認が楽になります！
+	この「納品記録PDF」フォルダのショートカットをデスクトップに作っておくと、毎回の確認が楽になります。
 </Callout>
 
 </Step>
@@ -145,7 +147,7 @@ import {
     <Accordion title="エラーで止まってしまった" icon={<AlertTriangle />}>
     	もし「デバッグ」というボタンが出るエラー画面になった場合は、**「終了」**
     	を押してファイルを閉じてください。\
-    	その後、システム担当（結城）へ状況を報告してください。
+    	その後、システム担当（{SITE_CONFIG.admin}）へ状況を報告してください。
     </Accordion>
 
 </Accordions>
