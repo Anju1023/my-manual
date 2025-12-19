@@ -1,3 +1,4 @@
 {
-	"pages": ["order_supplies", "saturday_update"]
+	"pages": ["order_supplies", "saturday_update"],
+	"icon": "ListOrdered"
 }

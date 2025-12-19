@@ -14,9 +14,12 @@ import {
 	Database,
 	Printer,
 	Layers,
+	PackagePlus,
+	ClipboardList,
+	LibraryBig,
 } from 'lucide-react';
 
-# 🆕 新商品登録フロー
+# <PackagePlus className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 新商品登録フロー
 
 新商品が発売される際に行う、一連の登録作業マニュアルです。
 レシピの保存からシステム登録まで、以下のステップ順に進めてください。
@@ -29,82 +32,83 @@ import {
 
 </Callout>
 
-## 📋 登録プロセスの全体像
+## <ClipboardList className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 登録プロセスの全体像
 
 各ステップの詳細は、リンク先の個別ページを参照してください。
 
 <Steps>
-<Step>
+	<Step>
 
-### Step 1: レシピの保存
+    	### Step 1: レシピの保存
 
-作成されたレシピデータを、共有フォルダへ保存します。
+    	作成されたレシピデータを、共有フォルダへ保存します。
 
-- **詳細手順:** [Step 1: レシピ保存](./new_product/01_recipe)
+    	- **詳細手順:** [Step 1: レシピ保存](./new_product/01_recipe)
 
-</Step>
-<Step>
+    </Step>
+    <Step>
 
-### Step 2: 本社への申請 (JAN 発行)
+    	### Step 2: 本社への申請 (JAN 発行)
 
-新商品の JAN コードを発行してもらうため、申請書を作成して本社へ送付します。
+    	新商品の JAN コードを発行してもらうため、申請書を作成して本社へ送付します。
 
-- **詳細手順:** [Step 2: 本社申請](./new_product/02_application)
+    	- **詳細手順:** [Step 2: 本社申請](./new_product/02_application)
 
-</Step>
-<Step>
+    </Step>
+    <Step>
 
-### Step 3: ラベラー (@Label) の登録
+    	### Step 3: ラベラー (@Label) の登録
 
-店舗で値札シールを発行できるように、Web システム(@Label)へ登録を行います。
+    	店舗で値札シールを発行できるように、Web システム(@Label)へ登録を行います。
 
-- **詳細手順:** [Step 3: ラベラー登録](./new_product/03_labeler)
+    	- **詳細手順:** [Step 3: ラベラー登録](./new_product/03_labeler)
 
-</Step>
-<Step>
+    </Step>
+    <Step>
 
-### Step 4: CB 商品データの登録
+    	### Step 4: CB 商品データの登録
 
-製造指示書を作成するため、`CB商品データ.xlsm` に新商品の情報を登録します。
-カテゴリを選択すると、商品 ID が自動で採番されます。
+    	製造指示書を作成するため、`CB商品データ.xlsm` に新商品の情報を登録します。
+    	カテゴリを選択すると、商品 ID が自動で採番されます。
 
-- **詳細手順:** [Step 4: CB データ登録](./new_product/04_cb_data)
+    	- **詳細手順:** [Step 4: CB データ登録](./new_product/04_cb_data)
 
-</Step>
-<Step>
+    </Step>
+    <Step>
 
-### Step 5: 納品データのマスタ登録
+    	### Step 5: 納品データのマスタ登録
 
-納品書発行システムである `T納品データ.xlsm` にも情報を追加します。
-こちらは自動連携しないため、手動での入力が必要です。
+    	納品書発行システムである `T納品データ.xlsm` にも情報を追加します。
+    	こちらは自動連携しないため、手動での入力が必要です。
 
-- **詳細手順:** [Step 5: 納品データ登録](./new_product/05_t_data)
+    	- **詳細手順:** [Step 5: 納品データ登録](./new_product/05_t_data)
 
-</Step>
-<Step>
+    </Step>
+    <Step>
 
-### Step 6: 数量入力と印刷
+    	### Step 6: 数量入力と印刷
 
-社長から指示された製造予定数を入力し、帳票を出力して確認します。
+    	社長から指示された製造予定数を入力し、帳票を出力して確認します。
 
-- **詳細手順:** [Step 6: 数量入力・印刷](./new_product/06_print)
+    	- **詳細手順:** [Step 6: 数量入力・印刷](./new_product/06_print)
 
-</Step>
-<Step>
+    </Step>
+    <Step>
 
-### Step 7: 伝票用シートの調整
+    	### Step 7: 伝票用シートの調整
 
-最後に、印刷用のレイアウトを整えます。
-行の挿入や並び替えを行い、印刷範囲に収まるように調整します。
+    	最後に、印刷用のレイアウトを整えます。
+    	行の挿入や並び替えを行い、印刷範囲に収まるように調整します。
 
-- **詳細手順:** [Step 7: 伝票調整](./new_product/07_layout)
+    	- **詳細手順:** [Step 7: 伝票調整](./new_product/07_layout)
 
-</Step>
+    </Step>
+
 </Steps>
 
 ---
 
-## 📚 ステップ詳細メニュー
+## <LibraryBig className='inline w-[1em] h-[1em] mr-1 -mt-1' /> ステップ詳細メニュー
 
 <Cards>
 	<Card

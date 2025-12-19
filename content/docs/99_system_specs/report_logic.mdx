@@ -6,14 +6,23 @@ description: 製造数集計やラベル表作成など、主要な帳票出力�
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
-import { FileText, Calculator, Database, ArrowRight } from 'lucide-react';
+import {
+	FileText,
+	Calculator,
+	Database,
+	ArrowRight,
+	SquareCode,
+	Factory,
+	Croissant,
+	ShoppingCart,
+} from 'lucide-react';
 
-# 📝 帳票出力マクロの仕様 (Report Logic)
+# <SquareCode className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 帳票出力マクロの仕様 (Report Logic)
 
 操作シートのボタンから呼び出される、各帳票作成マクロの内部ロジックを解説します。
 すべてのマクロは、処理速度向上のため `Application.ScreenUpdating = False`（画面更新停止）を使用し、`frmProgress` フォームで進捗状況を表示する共通仕様となっています。
 
-## 🏭 製造数・集計系マクロ
+## <Factory className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 製造数・集計系マクロ
 
 各店舗のシートからデータを収集し、集計シート（`CB製造数` 等）に書き出す処理です。
 
@@ -73,7 +82,7 @@ import { FileText, Calculator, Database, ArrowRight } from 'lucide-react';
 
 </Accordions>
 
-## 🍞 工程表作成マクロ (生地・成形)
+## <Croissant className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 工程表作成マクロ (生地・成形)
 
 製造スタッフが使用する「生地出し表」や「並べる表」を作成する処理です。
 商品マスタの設定値 (`Frozen`, `Display` 等) に基づいて振り分けられます。
@@ -109,7 +118,7 @@ import { FileText, Calculator, Database, ArrowRight } from 'lucide-react';
 
 </Accordions>
 
-## 🛒 発注・納品系マクロ
+## <ShoppingCart className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 発注・納品系マクロ
 
 <Accordions>
    <Accordion title="商品別シート出力 (ローゼン / クリエイト)" icon={<FileText />}>

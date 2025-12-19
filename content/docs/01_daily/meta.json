@@ -1,3 +1,4 @@
 {
-	"pages": ["print_daily", "save_delivery_record"]
+	"pages": ["print_daily", "save_delivery_record"],
+	"icon": "CalendarCheck"
 }

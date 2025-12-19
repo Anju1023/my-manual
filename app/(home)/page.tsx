@@ -10,6 +10,8 @@ import {
 	AlertTriangle,
 	Phone,
 	Search,
+	BookOpen,
+	MonitorCog,
 } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -19,7 +21,7 @@ export default function HomePage() {
 			{/* ヒーローセクション */}
 			<div className="text-center mb-16 space-y-4">
 				<h1 className="text-4xl font-extrabold text-fd-foreground sm:text-5xl leading-tight">
-					🍞 {SITE_CONFIG.department}
+					{SITE_CONFIG.department}
 					<br />
 					{SITE_CONFIG.manualName}
 				</h1>
@@ -29,17 +31,17 @@ export default function HomePage() {
 				<div className="flex justify-center gap-4 mt-8">
 					<Link
 						href="/docs"
-						className="inline-flex items-center justify-center rounded-full bg-fd-primary px-8 py-3 text-sm font-bold text-fd-primary-foreground hover:bg-fd-primary/90 transition-colors shadow-lg"
+						className="inline-flex items-center justify-center gap-2 rounded-full bg-fd-primary px-8 py-3 text-sm font-bold text-fd-primary-foreground hover:bg-fd-primary/90 transition-colors shadow-lg"
 					>
-						マニュアルを閲覧する 📖
+						マニュアルを閲覧する <BookOpen size={16} />
 					</Link>
 				</div>
 			</div>
 
 			{/* 業務メニュー一覧 */}
 			<div className="mb-20">
-				<h2 className="text-2xl font-bold mb-8 text-center border-b-2 border-dotted border-fd-border pb-2 inline-block w-full">
-					🚀 業務メニュー
+				<h2 className="flex items-center justify-center gap-2 text-2xl font-bold mb-8 text-center border-b-2 border-dotted border-fd-border pb-2 w-full">
+					<MonitorCog size={32} /> 業務メニュー
 				</h2>
 				<Cards>
 					<Card

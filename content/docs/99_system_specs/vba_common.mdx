@@ -12,9 +12,15 @@ import {
 	Variable,
 	FunctionSquare,
 	AlertTriangle,
+	Puzzle,
+	Package,
+	SquareFunction,
+	LibraryBig,
+	Calculator,
+	Croissant,
 } from 'lucide-react';
 
-# 🧩 共通関数・クラスモジュール
+# <Puzzle className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 共通関数・クラスモジュール
 
 システム全体で共有されているクラス定義と、標準モジュールの便利関数群です。
 データの読み込みや計算処理は、これらの共通部品を呼び出すことで実装されています。
@@ -25,7 +31,7 @@ import {
 	Scripting Runtime」** にチェックが入っていることを確認してください。
 </Callout>
 
-## 📦 クラスモジュール
+## <Package className='inline w-[1em] h-[1em] mr-1 -mt-1' /> クラスモジュール
 
 ### `ClsItem` (商品オブジェクト)
 
@@ -72,7 +78,7 @@ import {
 />
 
 <Accordions>
-<Accordion title="ソースコード (ClsItem)" icon={<FileCode />}>
+	<Accordion title="ソースコード (ClsItem)" icon={<FileCode />}>
 ```vb
 Option Explicit
 Public ItemID As String '商品ID
@@ -109,7 +115,7 @@ DisplayQty = WorksheetFunction.RoundUp(count \* UnitCount, 0)
 End Function
 
 ````
-</Accordion>
+	</Accordion>
 </Accordions>
 
 ### `ClsLabel` (ラベル集計用)
@@ -119,32 +125,33 @@ End Function
 
 ---
 
-## 🛠️ 共通関数 (標準モジュール)
+## <SquareFunction className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 共通関数 (標準モジュール)
 
-### 📚 辞書ロード系
+### <LibraryBig className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 辞書ロード系
 
 Excel のテーブルデータを読み込み、検索しやすい形（Dictionary）に変換して返します。
 
 <Accordions>
-<Accordion title="LoadItemDictionary / LoadStoreDictionary" icon={<FileCode />}>
+	<Accordion title="LoadItemDictionary / LoadStoreDictionary" icon={<FileCode />}>
 ```vb
 Public Function LoadItemDictionary() As Object
-    Dim dic As Object, wb As Workbook, ws As Worksheet, tbl As ListObject
-    Set dic = CreateObject("Scripting.Dictionary")
-    ' ... (中略: 商品データテーブルをループしてClsItemに格納)
-    Set LoadItemDictionary = dic
+	Dim dic As Object, wb As Workbook, ws As Worksheet, tbl As ListObject
+	Set dic = CreateObject("Scripting.Dictionary")
+	' ... (中略: 商品データテーブルをループしてClsItemに格納)
+	Set LoadItemDictionary = dic
 End Function
 
 Public Function LoadStoreDictionary() As Object
-    ' 店舗マスターを読み込み、店舗名とIDの対応表を作成
-    ' ...
+	' 店舗マスターを読み込み、店舗名とIDの対応表を作成
+	' ...
 End Function
 ````
 
-</Accordion>
+    </Accordion>
+
 </Accordions>
 
-### 🧮 文字列・計算処理
+### <Calculator className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 文字列・計算処理
 
 よく使う汎用関数です。
 
@@ -157,14 +164,14 @@ End Function
   - シート名に使えない文字を全角に置換します。
 
 <Accordions>
-<Accordion title="ソースコード (便利関数)" icon={<FileCode />}>
+	<Accordion title="ソースコード (便利関数)" icon={<FileCode />}>
 ```vb
 Public Function Nz(v, Optional defaultValue As Variant = 0)
-    If IsError(v) Or IsEmpty(v) Or Trim(v & "") = "" Then
-        Nz = defaultValue
-    Else
-        Nz = v
-    End If
+	If IsError(v) Or IsEmpty(v) Or Trim(v & "") = "" Then
+		Nz = defaultValue
+	Else
+		Nz = v
+	End If
 End Function
 
 Function GetBaseName(ByVal fullName As String) As String
@@ -178,31 +185,32 @@ GetBaseName = temp
 End Function
 
 ````
-</Accordion>
+	</Accordion>
 </Accordions>
 
-### 🍞 天板計算ロジック
+### <Croissant className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 天板計算ロジック
 
 「並べる表」などで使用される、天板枚数の計算ロジックです。
 マスタの `最大数(MaxQty)` と `倍数(Multiple)` を使用して、最も効率的な並べ方を文字列で返します。
 
 <Accordions>
-<Accordion title="NarabeSingle (計算ロジック)" icon={<FileCode />}>
+	<Accordion title="NarabeSingle (計算ロジック)" icon={<FileCode />}>
 ```vb
 Private Function NarabeSingle(dic As Object, panName As String, panQty As Long) As String
-    ' ... (商品マスタ取得)
+	' ... (商品マスタ取得)
 
-    ' 総数を倍数で割って、天板枚数を計算
-    Dim a As Double, b As Double, c As Long
-    a = panQty / proQty
-    b = maxQty / proQty
-    c = Application.RoundUp(a / b, 0)
+	' 総数を倍数で割って、天板枚数を計算
+	Dim a As Double, b As Double, c As Long
+	a = panQty / proQty
+	b = maxQty / proQty
+	c = Application.RoundUp(a / b, 0)
 
-    ' ... (詳細な枚数配分ロジック)
+	' ... (詳細な枚数配分ロジック)
 
-    NarabeSingle = (b * proQty) & "×" & e & "、" & ((b - 1) * proQty) & "×" & d
+	NarabeSingle = (b * proQty) & "×" & e & "、" & ((b - 1) * proQty) & "×" & d
 End Function
 ````
 
-</Accordion>
+    </Accordion>
+
 </Accordions>

@@ -1,3 +1,4 @@
 {
-	"pages": ["new_product", "change_quantity"]
+	"pages": ["new_product", "change_quantity"],
+	"icon": "PencilLine"
 }

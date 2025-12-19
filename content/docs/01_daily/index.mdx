@@ -11,11 +11,15 @@ import {
 	Save,
 	AlertTriangle,
 	FileSpreadsheet,
+	CalendarSync,
+	Clock,
+	ClipboardList,
+	ListChecks,
 } from 'lucide-react';
 import { Files, File, Folder } from 'fumadocs-ui/components/files';
 import { SITE_CONFIG } from '@/lib/constants.ts';
 
-# 📅 毎日の業務 (Daily Routine)
+# <CalendarSync className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 毎日の業務 (Daily Routine)
 
 毎日行う事務作業およびシステム操作の手順です。
 以下のタイムラインに沿って業務を遂行してください。
@@ -56,7 +60,7 @@ import { SITE_CONFIG } from '@/lib/constants.ts';
 
 </Callout>
 
-## 🕒 作業タイムライン
+## <Clock className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 作業タイムライン
 
 | 期限       | 作業内容                                                                        |
 | :--------- | :------------------------------------------------------------------------------ |
@@ -65,7 +69,7 @@ import { SITE_CONFIG } from '@/lib/constants.ts';
 
 <br />
 
-## 📋 業務メニュー
+## <ClipboardList className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 業務メニュー
 
 詳細な手順は以下の各ページを参照してください。
 
@@ -88,7 +92,7 @@ import { SITE_CONFIG } from '@/lib/constants.ts';
 
 </Cards>
 
-## ⚠️ 注意事項
+## <AlertTriangle className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 注意事項
 
 - **マクロ実行中の操作禁止**
 
@@ -101,7 +105,7 @@ import { SITE_CONFIG } from '@/lib/constants.ts';
 
 ---
 
-## ✅ 退勤前の最終チェック
+## <ListChecks className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 退勤前の最終チェック
 
 - [ ] 明日分の「日替わり表」は印刷されていますか？
 - [ ] 納品記録の PDF 保存は完了していますか？

@@ -16,10 +16,13 @@ import {
 	Search,
 	CheckCircle,
 	FileSpreadsheet,
+	ClipboardList,
+	MessageCircleWarning,
+	Wrench,
 } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants.ts';
 
-# 💾 納品記録の保存
+# <Save className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 納品記録の保存
 
 翌日納品分の売上データを確定させ、記録用の PDF ファイルを保存します。\
 「日替わり表の印刷」が完了した後に、手が空いたタイミングで実施してください（当日中で OK）。
@@ -57,7 +60,7 @@ import { SITE_CONFIG } from '@/lib/constants.ts';
 
 </Callout>
 
-## 📋 操作手順
+## <ClipboardList className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 操作手順
 
 <Steps>
 <Step>
@@ -130,7 +133,7 @@ import { SITE_CONFIG } from '@/lib/constants.ts';
 
 ---
 
-## ❓ トラブルシューティング
+## <MessageCircleWarning className='inline w-[1em] h-[1em] mr-1 -mt-1' /> トラブルシューティング
 
 <Accordions>
 	<Accordion
@@ -154,7 +157,7 @@ import { SITE_CONFIG } from '@/lib/constants.ts';
 
 ---
 
-## 🔧 管理者向け情報
+## <Wrench className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 管理者向け情報
 
 <Accordions>
 <Accordion title="保存先フォルダの自動生成" icon={<FolderOpen />}>

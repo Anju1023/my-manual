@@ -13,14 +13,18 @@ import {
 	FilePlus,
 	Archive,
 	Keyboard,
+	PencilLine,
+	FolderSync,
+	NotebookPen,
+	ClipboardList,
 } from 'lucide-react';
 
-# 🛠️ 随時行う作業 (Maintenance)
+# <PencilLine className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 随時行う作業 (Maintenance)
 
 新商品の登録や価格変更、数量調整など、必要に応じて行うメンテナンス業務のマニュアルです。
 これらの作業は **システムの中身（マスタデータ）を書き換える** ため、慎重に行う必要があります。
 
-## 🛡️ 【最重要】バックアップのルール
+## <FolderSync className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 【最重要】バックアップのルール
 
 <Callout type="error" title="変更前のバックアップ（必須）" icon={<AlertTriangle />}>
 	**変更を加える前に、必ずファイルのコピー（バックアップ）を作成してください。**
@@ -75,7 +79,7 @@ import {
 	ファイルを選択して **`F2`** キーを押すと、名前の変更が可能になります。
 </Callout>
 
-#### 📝 変更内容の記載例
+#### <NotebookPen className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 変更内容の記載例
 
 ファイル名の末尾には、作業内容を具体的に記載してください。
 
@@ -91,7 +95,7 @@ import {
 
 ---
 
-## 📋 メンテナンス業務メニュー
+## <ClipboardList className='inline w-[1em] h-[1em] mr-1 -mt-1' /> メンテナンス業務メニュー
 
 <Cards>
 	<Card

@@ -18,7 +18,7 @@ export async function GET(
 			<DefaultImage
 				title={page.data.title}
 				description={page.data.description}
-				site="南部センターベーカリー業務マニュアル"
+				site="南部センター ベーカリー 業務マニュアル"
 			/>
 		),
 		{

@@ -17,9 +17,12 @@ import {
 	HelpCircle,
 	MousePointerClick,
 	FileSpreadsheet,
+	FolderSync,
+	ClipboardList,
+	Wrench,
 } from 'lucide-react';
 
-# 🔄 土曜日のデータ更新
+# <FolderSync className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 土曜日のデータ更新
 
 毎週土曜日に実行する、データメンテナンス作業です。
 本システムは「2 週間分」のデータを管理しており、更新処理によってデータを 1 週間分ずらし（ローリングし）、翌週の製造指示が出せるようにします。
@@ -56,7 +59,7 @@ import {
 
 </Callout>
 
-## 📋 操作手順
+## <ClipboardList className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 操作手順
 
 <Steps>
 <Step>
@@ -203,7 +206,7 @@ import {
 
 ---
 
-## 🔧 管理者向け情報
+## <Wrench className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 管理者向け情報
 
 <Accordions>
 <Accordion title="更新マクロの仕様 (Sub 更新)" icon={<RefreshCw />}>

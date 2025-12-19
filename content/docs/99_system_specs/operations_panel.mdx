@@ -5,14 +5,22 @@ description: Excelの「操作」シートにある各ボタンの機能と、�
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { TypeTable } from 'fumadocs-ui/components/type-table';
-import { MousePointerClick, Play, Printer } from 'lucide-react';
+import {
+	MousePointerClick,
+	Play,
+	Printer,
+	CirclePower,
+	FileOutput,
+	FolderOutput,
+	Settings,
+} from 'lucide-react';
 
-# 🎛️ 操作シート・ボタン機能一覧
+# <CirclePower className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 操作シート・ボタン機能一覧
 
 「操作」シートに配置されているボタンと、実行される VBA マクロの対応表です。
 ボタンの配置が変わったり、機能を追加する際の参考にしてください。
 
-## 🚀 一括出力系 (メイン機能)
+## <FolderOutput className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 一括出力系 (メイン機能)
 
 日常業務で主に使用する、複数の処理をまとめて行うボタンです。
 
@@ -41,7 +49,7 @@ import { MousePointerClick, Play, Printer } from 'lucide-react';
 	}}
 />
 
-## 🏭 個別出力系 (メンテナンス用)
+## <FileOutput className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 個別出力系 (メンテナンス用)
 
 特定の帳票だけを再出力したい場合に使用します。
 
@@ -106,7 +114,7 @@ import { MousePointerClick, Play, Printer } from 'lucide-react';
 	}}
 />
 
-## ⚙️ システム制御系
+## <Settings className='inline w-[1em] h-[1em] mr-1 -mt-1' /> システム制御系
 
 <TypeTable
 	type={{

@@ -1,3 +1,4 @@
 {
-	"pages": ["inventory", "shift"]
+	"pages": ["inventory", "shift"],
+	"icon": "ClipboardClock"
 }

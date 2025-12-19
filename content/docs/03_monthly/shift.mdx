@@ -19,9 +19,14 @@ import {
 	Image,
 	CheckCircle,
 	FileSpreadsheet,
+	ClipboardClock,
+	ClipboardList,
+	ListChecks,
+	Snowflake,
+	Wrench,
 } from 'lucide-react';
 
-# 🗓️ シフト作成・清書
+# <ClipboardClock className='inline w-[1em] h-[1em] mr-1 -mt-1' /> シフト作成・清書
 
 翌月分のパート・アルバイトスタッフのシフト表を作成します。
 勤怠管理に関わる重要な書類ですので、正確な操作が必要です。
@@ -61,7 +66,7 @@ import {
 
 </Callout>
 
-## 📋 操作手順
+## <ClipboardList className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 操作手順
 
 <Steps>
 	<Step>
@@ -150,7 +155,7 @@ import {
 
 ---
 
-## ✅ 送信前の最終チェック
+## <ListChecks className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 送信前の最終チェック
 
 LINE で画像を送ってしまうと、訂正が大変です。
 送信ボタンを押す前に、必ず以下のポイントを確認してください。
@@ -162,7 +167,7 @@ LINE で画像を送ってしまうと、訂正が大変です。
 
 ---
 
-## 🎍 年末年始の特別作業（重要）
+## <Snowflake className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 年末年始の特別作業（重要）
 
 年が変わるタイミング（12 月に翌年 1 月分を作る時）は、以下の修正が必要です。
 これを忘れると **「曜日がズレる」「祝日が赤くならない」** という重大なミスに繋がります。
@@ -188,7 +193,7 @@ LINE で画像を送ってしまうと、訂正が大変です。
 
 ---
 
-## 🔧 管理者向け情報
+## <Wrench className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 管理者向け情報
 
 <Accordions>
 <Accordion title="日付自動表示の仕組み" icon={<Calculator />}>
