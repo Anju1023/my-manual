@@ -1,5 +1,6 @@
 {
 	"cSpell.words": [
+		"COUNTIF",
 		"customise",
 		"fumadocs",
 		"llms",
@@ -7,6 +8,7 @@
 		"orama",
 		"placehold",
 		"pyproject",
-		"TERAOKA"
+		"TERAOKA",
+		"XLOOKUP"
 	]
 }
