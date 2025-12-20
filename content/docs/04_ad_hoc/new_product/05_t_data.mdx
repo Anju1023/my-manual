@@ -21,6 +21,7 @@ import {
 	ClipboardList,
 	MessageCircleQuestionMark,
 } from 'lucide-react';
+import { IconList } from '@/components/icon-list';
 
 # <PiggyBank className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 納品データの登録
 
@@ -143,6 +144,14 @@ import {
 
         * <MessageCircleQuestionMark className='inline w-[1em] h-[1em] -mt-1' /> **「T 商品マスター」** への登録を忘れていませんか？
         * <MessageCircleQuestionMark className='inline w-[1em] h-[1em] -mt-1' /> **「商品ID」** はCBデータと完全に一致していますか？（スペースなどが含まれていないか確認）
+    </Accordion>
+    <Accordion title="納品書の金額が 0円 になる" icon={<HelpCircle />}>
+        **原因:** 該当する日付の単価が見つかっていません。
+
+        <IconList icon="question" color="text-green-500">
+    		- **「適用開始日」** が未来の日付になっていませんか？
+    		- **「社名」** は正確ですか？
+    	</IconList>
     </Accordion>
 
 </Accordions>
