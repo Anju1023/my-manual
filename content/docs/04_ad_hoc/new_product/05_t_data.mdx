@@ -21,7 +21,7 @@ import {
 	ClipboardList,
 	MessageCircleQuestionMark,
 } from 'lucide-react';
-import { IconList } from '@/components/icon-list';
+import { IconList, Item } from '@/components/icon-list';
 
 # <PiggyBank className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 納品データの登録
 
@@ -135,22 +135,18 @@ import { IconList } from '@/components/icon-list';
 <Accordions>
     <Accordion title="納品書の金額が 0円 になる" icon={<HelpCircle />}>
         **原因:** 該当する日付の単価が見つかっていません。
-        
-        * <MessageCircleQuestionMark className='inline w-[1em] h-[1em] -mt-1' /> **「適用開始日」** が未来の日付になっていませんか？
-        * <MessageCircleQuestionMark className='inline w-[1em] h-[1em] -mt-1' /> **「社名」** は正確ですか？
+
+        <IconList icon="question" color="text-green-500">
+    		<Item>**「適用開始日」** が未来の日付になっていませんか？</Item>
+    		<Item>**「社名」** は正確ですか？</Item>
+    	</IconList>
     </Accordion>
     <Accordion title="商品名が表示されない" icon={<HelpCircle />}>
         **原因:** 商品マスタとの紐づけがうまくいっていません。
 
-        * <MessageCircleQuestionMark className='inline w-[1em] h-[1em] -mt-1' /> **「T 商品マスター」** への登録を忘れていませんか？
-        * <MessageCircleQuestionMark className='inline w-[1em] h-[1em] -mt-1' /> **「商品ID」** はCBデータと完全に一致していますか？（スペースなどが含まれていないか確認）
-    </Accordion>
-    <Accordion title="納品書の金額が 0円 になる" icon={<HelpCircle />}>
-        **原因:** 該当する日付の単価が見つかっていません。
-
         <IconList icon="question" color="text-green-500">
-    		- **「適用開始日」** が未来の日付になっていませんか？
-    		- **「社名」** は正確ですか？
+    		<Item>**「T 商品マスター」** への登録を忘れていませんか？</Item>
+    		<Item>**「商品ID」** はCBデータと完全に一致していますか？（スペースなどが含まれていないか確認）</Item>
     	</IconList>
     </Accordion>
 

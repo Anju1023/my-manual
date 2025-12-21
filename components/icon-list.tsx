@@ -1,6 +1,7 @@
-import React, { ReactNode, isValidElement } from 'react';
+import React, { ReactNode } from 'react';
 import { Check, Star, Zap, MessageCircleQuestion } from 'lucide-react';
 
+// アイコンの定義はそのまま
 const ICONS = {
 	check: Check,
 	star: Star,
@@ -8,64 +9,44 @@ const ICONS = {
 	question: MessageCircleQuestion,
 };
 
-type IconListProps = {
-	children: ReactNode;
-	icon?: keyof typeof ICONS;
-	color?: string;
-};
-
-// propsにchildrenが含まれている型を定義
-type PropsWithChildren = {
-	children: ReactNode;
-};
-
+// 親のリストコンポーネント
 export function IconList({
 	children,
 	icon = 'check',
 	color = 'text-blue-500',
-}: IconListProps) {
+}: {
+	children: ReactNode;
+	icon?: keyof typeof ICONS;
+	color?: string;
+}) {
 	const IconComponent = ICONS[icon];
 
-	// 1. ulタグを剥がして、中身をフラットにする
-	const rawItems = React.Children.toArray(children).flatMap((child) => {
-		if (isValidElement(child) && child.type === 'ul') {
-			const ulProps = child.props as PropsWithChildren;
-			return React.Children.toArray(ulProps.children);
+	// 子要素（Item）にアイコンと色を渡すために、mapする
+	const items = React.Children.map(children, (child) => {
+		if (React.isValidElement(child)) {
+			// cloneElementを使って、子供にpropsを注入する魔法！🧙‍♀️
+			return React.cloneElement(child as React.ReactElement<any>, {
+				icon: IconComponent,
+				color,
+			});
 		}
 		return child;
 	});
 
-	// 🛠 ここが修正ポイント‼️
-	// 2. 「改行」や「空白」だけのテキストノード（お化け👻）を除去する！
-	const items = rawItems.filter((child) => {
-		if (typeof child === 'string' && child.trim().length === 0) {
-			return false; // 空っぽならリストに入れない！
-		}
-		return true;
-	});
+	return <ul className="flex flex-col my-4 pl-0 list-none">{items}</ul>;
+}
 
+// 子のアイテムコンポーネント（これを作るのがポイント‼️）
+export function Item({ children, icon: Icon, color }: any) {
 	return (
-		<ul className="flex flex-col gap-3 my-4 pl-0 list-none">
-			{items.map((child, index) => {
-				let content = child;
-
-				// liタグの場合も中身を取り出す
-				if (isValidElement(child) && child.type === 'li') {
-					const liProps = child.props as PropsWithChildren;
-					content = liProps.children;
-				}
-
-				return (
-					<li key={index} className="flex items-start gap-3">
-						<div className={`mt-1 shrink-0 ${color}`}>
-							<IconComponent size={20} strokeWidth={2.5} />
-						</div>
-						<div className="text-gray-700 dark:text-gray-300 leading-7">
-							{content}
-						</div>
-					</li>
-				);
-			})}
-		</ul>
+		<li className="flex items-start gap-1">
+			{/* アイコンを表示 */}
+			<div className={`mt-1 shrink-0 ${color}`}>
+				{Icon && <Icon size={20} strokeWidth={2.5} />}
+			</div>
+			<div className="text-gray-700 dark:text-gray-300 leading-7">
+				{children}
+			</div>
+		</li>
 	);
 }

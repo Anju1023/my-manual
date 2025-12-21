@@ -9,6 +9,6 @@ export const { GET } = createFromSource(source, {
 	},
 	search: {
 		threshold: 0,
-		tolerance: 0, // 0にすると「あいまい検索」が無効になって、正確な日本語検索ができる
+		tolerance: 1,
 	},
 });
