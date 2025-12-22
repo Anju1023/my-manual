@@ -1,30 +1,47 @@
 import React, { ReactNode } from 'react';
-import { Check, Star, Zap, MessageCircleQuestion } from 'lucide-react';
+import {
+	Check,
+	Star,
+	Zap,
+	MessageCircleQuestion,
+	LucideIcon,
+	PencilLine,
+	FileCheckCorner,
+} from 'lucide-react';
 
-// アイコンの定義はそのまま
 const ICONS = {
 	check: Check,
 	star: Star,
 	zap: Zap,
 	question: MessageCircleQuestion,
+	pen: PencilLine,
+	file: FileCheckCorner,
 };
 
-// 親のリストコンポーネント
+// 親: IconListのProps
+type IconListProps = {
+	children: ReactNode;
+	icon?: keyof typeof ICONS;
+	color?: string;
+};
+
+// 子: ItemのProps
+type ItemProps = {
+	children: ReactNode;
+	icon?: LucideIcon; // 親から自動で渡される
+	color?: string; // 親から自動で渡される
+};
+
 export function IconList({
 	children,
 	icon = 'check',
 	color = 'text-blue-500',
-}: {
-	children: ReactNode;
-	icon?: keyof typeof ICONS;
-	color?: string;
-}) {
+}: IconListProps) {
 	const IconComponent = ICONS[icon];
 
-	// 子要素（Item）にアイコンと色を渡すために、mapする
+	// 子供たち（Item）に、一括でアイコンと色を渡してあげる魔法！🧙‍♀️
 	const items = React.Children.map(children, (child) => {
 		if (React.isValidElement(child)) {
-			// cloneElementを使って、子供にpropsを注入する魔法！🧙‍♀️
 			return React.cloneElement(child as React.ReactElement<any>, {
 				icon: IconComponent,
 				color,
@@ -36,15 +53,20 @@ export function IconList({
 	return <ul className="flex flex-col my-4 pl-0 list-none">{items}</ul>;
 }
 
-// 子のアイテムコンポーネント（これを作るのがポイント‼️）
-export function Item({ children, icon: Icon, color }: any) {
+// これが新しい Item コンポーネント！
+export function Item({ children, icon: Icon, color }: ItemProps) {
 	return (
-		<li className="flex items-start gap-1">
-			{/* アイコンを表示 */}
+		<li className="flex items-start gap-2">
+			{/* アイコン部分 */}
 			<div className={`mt-1 shrink-0 ${color}`}>
 				{Icon && <Icon size={20} strokeWidth={2.5} />}
 			</div>
-			<div className="text-gray-700 dark:text-gray-300 leading-7">
+
+			{/* コンテンツ部分
+				💡 ポイント: [&_ol]:list-decimal などをつけて、
+				Tailwindに消されたリストの数字を復活させてるよ！
+			*/}
+			<div className="flex-1 text-gray-700 dark:text-gray-300 leading-7 [&_ol]:list-decimal [&_ol]:pl-5 [&_ul]:list-disc [&_ul]:pl-5 space-y-2 [&>*:first-child]:mt-0 [&>*:last-child]:mb-0">
 				{children}
 			</div>
 		</li>

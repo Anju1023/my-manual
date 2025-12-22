@@ -17,23 +17,24 @@ import {
 	ScanBarcode,
 	ClipboardList,
 } from 'lucide-react';
+import { IconList, Item } from '@/components/icon-list';
 
 # <ScanBarcode className='inline w-[1em] h-[1em] mr-1 -mt-1' /> ラベラー (@Label) の登録
 
 本社から JAN コードが発行されたら、Web サービス **「@Label (ラベルサーブ)」** を使用して、店舗のラベルプリンター（レジ）用のマスタデータを作成・配信します。
 
 <Callout type="info" title="使用するファイル・サイト" icon={<FileText />}>
-    **1. 管理台帳 (Excel)**
+    #### 1. 管理台帳 (Excel)
     * **ファイル名:** `コンパクトベーカリー商品リスト.xlsx`
     * **場所:** `Dropbox` > `共有` > `TERAOKAラベラー` > `ラベルプリンター　リスト` > `旧コンパクトベーカリー`
 
-    以下のパスをコピーして、エクスプローラーのアドレスバーに貼り付けると便利です。
+        以下のパスをコピーして、エクスプローラーのアドレスバーに貼り付けると便利です。
 
-    ```txt
-    %USERPROFILE%\Dropbox\共有\TERAOKAラベラー\ラベルプリンター　リスト\旧コンパクトベーカリー\
-    ```
+        ```txt
+        %USERPROFILE%\Dropbox\共有\TERAOKAラベラー\ラベルプリンター　リスト\旧コンパクトベーカリー\
+        ```
 
-    **2. Webシステム**
+    #### 2. Webシステム
     * **サイト:** [@Label (https://labelserv.net/)](https://labelserv.net/)
     * **ID/PASS:** Chromeに保存されています（自動入力されます）。
 
@@ -131,10 +132,12 @@ import {
         <Callout type="error" title="ラベル最終チェックリスト" icon={<CheckSquare />}>
             発行されたラベルと、**商品レシピ** を見比べてください。
 
-            - [ ] 原材料名に間違いや抜け漏れはないか？
-            - [ ] **アレルギー表示** は正しいか？（最重要）
-            - [ ] 商品名・価格は正しいか？
-            - [ ] 消費期限の日付は正しく計算されているか？
+            <IconList icon="question" color="text-green-600">
+                <Item>原材料名に間違いや抜け漏れはないか？</Item>
+                <Item>**アレルギー表示** は正しいか？（最重要）</Item>
+                <Item>商品名・価格は正しいか？</Item>
+                <Item>消費期限の日付は正しく計算されているか？</Item>
+            </IconList>
 
         </Callout>
     </Step>

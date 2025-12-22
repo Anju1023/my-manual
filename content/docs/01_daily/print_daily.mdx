@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Files, File, Folder } from 'fumadocs-ui/components/files';
 import { SITE_CONFIG } from '@/lib/constants.ts';
+import { IconList, Item } from '@/components/icon-list';
 
 # <Printer className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 日替わり表の印刷
 
@@ -120,19 +121,26 @@ import { SITE_CONFIG } from '@/lib/constants.ts';
 
 出力された用紙を手に取り、以下の項目をチェックしてください。
 
-- [ ] **枚数は足りていますか？**（通常 5 種類以上）
-  1. 夜間用
-  2. 昼間用
-  3. 焼成後チェック表
-  4. 伝票用（※複数枚の場合あり）
-  5. クリエ伝票用
-- [ ] **日付は正しいですか？**（伝票用が「翌日の日付」になっているか）
-- [ ] **印刷は鮮明ですか？**（インク切れでかすれていないか）
+<IconList icon="question" color="text-green-600">
+	<Item>
+    	**枚数は足りていますか？**（通常 5 種類以上）
+
+    	1. 夜間用
+    	2. 昼間用
+    	3. 焼成後チェック表
+    	4. 伝票用（※複数枚の場合あり）
+    	5. クリエ伝票用
+
+    </Item>
+    <Item>**日付は正しいですか？**（伝票用が「翌日の日付」になっているか）</Item>
+    <Item>**印刷は鮮明ですか？**（インク切れでかすれていないか）</Item>
+
+</IconList>
 
 <Callout type="warn" icon={<AlertTriangle />}>
 	**枚数は変動します**
 
-    店舗数や商品数が増えると、「伝票用」などの枚数は自動的に増えます。
+    店舗数や商品数が増えると、「伝票用」などの枚数は自動的に増えます。\
     枚数ではなく、**「必要な種類の帳票がすべて揃っているか」**
     を確認してください。
 

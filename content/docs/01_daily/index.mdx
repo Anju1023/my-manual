@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { Files, File, Folder } from 'fumadocs-ui/components/files';
 import { SITE_CONFIG } from '@/lib/constants.ts';
+import { IconList, Item } from '@/components/icon-list';
 
 # <CalendarSync className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 毎日の業務 (Daily Routine)
 
@@ -107,9 +108,11 @@ import { SITE_CONFIG } from '@/lib/constants.ts';
 
 ## <ListChecks className='inline w-[1em] h-[1em] mr-1 -mt-1' /> 退勤前の最終チェック
 
-- [ ] 明日分の「日替わり表」は印刷されていますか？
-- [ ] 納品記録の PDF 保存は完了していますか？
-- [ ] エラー画面や Excel ファイルが開いたままになっていませんか？
-- [ ] **全てのウィンドウを閉じ、PC のシャットダウンを行いましたか？**
+<IconList color="text-green-600">
+	<Item>明日分の「日替わり表」は印刷されていますか？</Item>
+	<Item>納品記録の PDF 保存は完了していますか？</Item>
+	<Item>エラー画面や Excel ファイルが開いたままになっていませんか？</Item>
+	<Item>**全てのウィンドウを閉じ、PC のシャットダウンを行いましたか？**</Item>
+</IconList>
 
 お疲れ様でした。
