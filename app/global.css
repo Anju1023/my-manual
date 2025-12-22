@@ -2,73 +2,95 @@
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 
-@theme {
-	/* 🍞 ここ修正！！彩度(S)を上げて、鮮やかなオレンジにしたよ！！ */
+/* 🥐 南部センターベーカリー 専用テーマ
+  Theme: Morning Bakery & Night Café
+  
+  ドキュメント参照: https://www.fumadocs.dev/docs/ui/theme
+*/
 
-	/* メインカラー：元気なオレンジ！（Tailwindのorange-500に近い色） */
-	/* 前：hsl(30 60% 55%) ← これがベージュっぽかった犯人！ */
-	--color-fd-primary: hsl(25 95% 53%);
+@theme {
+	/* 🌞 ライトモード：焼きたてパンとオレンジマーマレード */
+
+	/* ベース背景：真っ白ではなく、小麦粉（Flour）のような温かいクリーム色 */
+	--color-fd-background: hsl(40 50% 98%);
+
+	/* 文字色：黒ではなく、エスプレッソ（Espresso）のような深みのある茶色 */
+	--color-fd-foreground: hsl(25 30% 20%);
+
+	/* メインカラー：こんがり焼けたパンの皮、元気なオレンジ！ (Vibrant Orange) */
+	--color-fd-primary: hsl(25 90% 55%);
 	--color-fd-primary-foreground: hsl(0 0% 100%);
 
-	/* 背景色：ほんのり温かいミルクホワイト（#FFF8F0 に近い色） */
-	--color-fd-background: hsl(36 100% 97%);
-
-	/* 文字色：チョコレート色（黒じゃないよ！） */
-	--color-fd-foreground: hsl(20 40% 25%);
-
-	/* カードなどの背景：白 */
+	/* カード背景：清潔感のある白（お皿の色） */
 	--color-fd-card: hsl(0 0% 100%);
-	--color-fd-card-foreground: hsl(20 40% 25%);
+	--color-fd-card-foreground: hsl(25 30% 20%);
 
+	/* ポップアップ系：カードと同じ */
 	--color-fd-popover: hsl(0 0% 100%);
-	--color-fd-popover-foreground: hsl(20 40% 25%);
+	--color-fd-popover-foreground: hsl(25 30% 20%);
 
-	/* ボーダーライン：ミルクティー色 */
-	--color-fd-border: hsl(30 40% 88%);
-	--color-fd-input: hsl(30 40% 88%);
+	/* 控えめな背景：カフェラテの泡のようなベージュ */
+	--color-fd-muted: hsl(35 30% 92%);
+	--color-fd-muted-foreground: hsl(25 20% 50%); /* シナモン色 */
 
-	/* 薄い背景色（サイドバーやホバー時）：カスタード色 */
-	--color-fd-muted: hsl(35 50% 96%);
-	--color-fd-muted-foreground: hsl(25 30% 50%);
+	/* サブカラー：バターのような淡い黄色（ホバー時などに使用） */
+	--color-fd-secondary: hsl(45 80% 90%);
+	--color-fd-secondary-foreground: hsl(25 30% 20%);
 
-	/* アクセント：少し濃いめのオレンジベージュ */
-	--color-fd-accent: hsl(30 60% 92%);
-	--color-fd-accent-foreground: hsl(20 40% 25%);
+	/* アクセント：少し濃いめのトースト色 */
+	--color-fd-accent: hsl(35 50% 90%);
+	--color-fd-accent-foreground: hsl(25 30% 20%);
 
-	/* 破壊的なアクション：いちごジャム色 */
-	--color-fd-destructive: hsl(0 80% 60%);
+	/* ボーダー：パンの柔らかい耳の色 */
+	--color-fd-border: hsl(30 30% 85%);
+	--color-fd-input: hsl(30 30% 85%);
+
+	/* 破壊的アクション：熟したイチゴジャムの赤 */
+	--color-fd-destructive: hsl(0 75% 60%);
 	--color-fd-destructive-foreground: hsl(0 0% 100%);
 
-	/* リンクの色 */
-	--color-fd-ring: hsl(25 95% 53%);
+	/* フォーカスリング：メインカラーと同じオレンジ */
+	--color-fd-ring: hsl(25 90% 55%);
 }
 
-/* 🌙 ダークモード：夜のパン屋さん（焦げ茶×オレンジ） */
+/* 🌙 ダークモード：夜のベーカリーカフェ（Night Shift） */
 .dark {
-	--color-fd-background: hsl(25 30% 15%);
-	--color-fd-foreground: hsl(35 30% 90%);
+	/* 背景：ダークチョコレート（Cocoa）のような深い茶色 */
+	--color-fd-background: hsl(25 25% 15%);
 
-	/* メインカラー：夜でも映える明るいオレンジ */
-	--color-fd-primary: hsl(28 90% 60%);
-	--color-fd-primary-foreground: hsl(25 30% 15%);
+	/* 文字色：温かいスチームミルクのようなオフホワイト */
+	--color-fd-foreground: hsl(35 30% 95%);
 
-	--color-fd-card: hsl(25 25% 20%);
-	--color-fd-card-foreground: hsl(35 30% 90%);
+	/* メインカラー：オーブンの明かりのような、温かく輝くオレンジ */
+	--color-fd-primary: hsl(30 90% 60%);
+	--color-fd-primary-foreground: hsl(25 25% 15%);
 
-	--color-fd-popover: hsl(25 25% 20%);
-	--color-fd-popover-foreground: hsl(35 30% 90%);
+	/* カード背景：ブラウニーのような濃い茶色 */
+	--color-fd-card: hsl(25 20% 20%);
+	--color-fd-card-foreground: hsl(35 30% 95%);
 
-	--color-fd-border: hsl(25 20% 30%);
-	--color-fd-input: hsl(25 20% 30%);
+	--color-fd-popover: hsl(25 20% 20%);
+	--color-fd-popover-foreground: hsl(35 30% 95%);
 
+	/* 控えめな背景：モカコーヒー色 */
 	--color-fd-muted: hsl(25 20% 25%);
 	--color-fd-muted-foreground: hsl(35 20% 70%);
 
+	/* サブカラー：ダークキャラメル */
+	--color-fd-secondary: hsl(25 20% 25%);
+	--color-fd-secondary-foreground: hsl(35 30% 95%);
+
+	/* アクセント：少し明るいココア色 */
 	--color-fd-accent: hsl(25 20% 30%);
-	--color-fd-accent-foreground: hsl(35 30% 90%);
+	--color-fd-accent-foreground: hsl(35 30% 95%);
 
+	/* ボーダー：焦げ茶色のクッキー生地 */
+	--color-fd-border: hsl(25 20% 30%);
+	--color-fd-input: hsl(25 20% 30%);
+
+	/* 破壊的アクション：ダークチェリーの赤 */
 	--color-fd-destructive: hsl(0 60% 50%);
-	--color-fd-destructive-foreground: hsl(0 0% 98%);
+	--color-fd-destructive-foreground: hsl(0 0% 100%);
 
-	--color-fd-ring: hsl(28 90% 60%);
+	--color-fd-ring: hsl(30 90% 60%);
 }
