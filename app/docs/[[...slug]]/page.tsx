@@ -4,11 +4,17 @@ import {
 	DocsDescription,
 	DocsPage,
 	DocsTitle,
+	PageLastUpdate,
 } from 'fumadocs-ui/layouts/docs/page';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
+
+const page = source.getPage(['...']);
+const lastModifiedTime = page?.data.lastModified
+	? new Date(page.data.lastModified)
+	: undefined;
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
 	const params = await props.params;
@@ -33,6 +39,8 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
 					})}
 				/>
 			</DocsBody>
+
+			{lastModifiedTime && <PageLastUpdate date={lastModifiedTime} />}
 		</DocsPage>
 	);
 }
