@@ -94,3 +94,29 @@
 
 	--color-fd-ring: hsl(30 90% 60%);
 }
+
+/* app/global.css の末尾に追加 */
+
+@media print {
+	/* 全体のレイアウト調整 */
+	#nd-docs-layout {
+		--fd-sidebar-width: 0px !important;
+		display: block !important; /* グリッド解除 */
+	}
+
+	/* サイドバーとナビゲーションバーを消す */
+	#nd-sidebar,
+	header,
+	#nd-toc {
+		/* 目次(TOC)も消したい場合 */
+		display: none !important;
+	}
+
+	/* コンテンツ幅を最大に */
+	main {
+		width: 100% !important;
+		max-width: none !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+}

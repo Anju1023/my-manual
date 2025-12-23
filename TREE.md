@@ -21,6 +21,8 @@ my-manual
 │     └─ docs
 │        └─ [...slug]
 │           └─ route.tsx
+├─ components
+│  └─ icon-list.tsx
 ├─ content
 │  └─ docs
 │     ├─ 01_daily
@@ -62,21 +64,40 @@ my-manual
 │     └─ meta.json
 ├─ eslint.config.mjs
 ├─ lib
+│  ├─ constants.ts
 │  ├─ layout.shared.tsx
 │  └─ source.ts
 ├─ mdx-components.tsx
-├─ middleware.ts
-├─ mkdir.py
 ├─ next.config.mjs
 ├─ package-lock.json
 ├─ package.json
 ├─ postcss.config.mjs
+├─ proxy.ts
 ├─ public
 │  └─ images
+│     ├─ Backup_Folder_Example.png
+│     ├─ Change_Year.png
+│     ├─ Check_Sheet2_Date.png
+│     ├─ Date_Button.png
+│     ├─ Ingredients_Input.png
+│     ├─ Insert_Row_And_Input.png
+│     ├─ Order_Date.png
+│     ├─ Output_All_Button.png
+│     ├─ Page_Break_Preview.png
+│     ├─ Paste_Nenkyu_Here.png
+│     ├─ PDF_Button.png
+│     ├─ PDF_Check.png
+│     ├─ Print_Button.png
+│     ├─ Search_Screen_Capture.png
+│     └─ Select_Sheet_Tab.png
 ├─ pyproject.toml
 ├─ README.md
 ├─ schema
+│  ├─ components.md
 │  └─ roadmap-fumadocs.md
+├─ scripts
+│  ├─ export-pdf.ts
+│  └─ mkdir.py
 ├─ source.config.ts
 ├─ TREE.md
 └─ tsconfig.json
